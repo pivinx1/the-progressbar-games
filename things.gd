@@ -4,6 +4,7 @@ enum TraitType {
 	GOOD,
 	NEUTRAL,
 	NEGATIVE,
+	SPECIES,
 }
 enum ItemType {
 	FIREARM,
@@ -32,6 +33,8 @@ var things = {
 			"happiness" = 0.0,
 			"suicidal" = 0.0,
 			"inventor" = 0.0,
+			"devious" = 0.0,
+			"medical" = 0.0
 		},
 	},
 	"traits" = {
@@ -40,8 +43,29 @@ var things = {
 			"description" = "Finds more loot.",
 			"points" = 4,
 			"type" = TraitType.GOOD,
+			"effects" = {"luck" = 5},
+			"icon" = "res://images/lucky.png"
+		},
+		"cute" = {
+			"name" = "Cute",
+			"description" = "People will like you more.",
+			"points" = 4,
+			"type" = TraitType.GOOD,
+			"effects" = {"cuteness" = 5},
+			"icon" = "res://images/cute.png"
+		},
+		"catperson" = {
+			"name" = "Catperson",
+			"description" = "Kind, cute, but bad at fighting.",
+			"points" = 4,
+			"type" = TraitType.SPECIES,
+			"icon" = "res://images/catperson.png",
 			"effects" = {
-				"luck" = 5
+				"cuteness" = 5, 
+				"pacifism" = 2.5, 
+				"kindness" = 5, 
+				"firearms" = -5, 
+				"melee" = -5
 			},
 		},
 	},

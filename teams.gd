@@ -1,4 +1,4 @@
-extends Control
+extends Panel
 
 var teams = {}
 var people = {}
@@ -9,12 +9,9 @@ var selected_team = "Nil and Void Team"
 
 func has_letters(your_string):
 	var regex = RegEx.new()
-	regex.compile("[a-zA-Z]+")
-	if regex.search(str(your_string)):
-		return true
-	else:
-		return false
-		
+	regex.compile("[a-zA-Z0-9]+")
+	return regex.search(str(your_string))
+	
 func _on_team_btn_pressed(button):
 	selected_team = button.text
 	for btn in team_box.get_children():
@@ -23,7 +20,7 @@ func _on_team_btn_pressed(button):
 		team_hated_box.button_pressed = teams[selected_team]["hated"]
 	print(selected_team)
 
-func add_team(team: String = "???", add_button: bool = true):
+func add_team(team: String = "???", select: bool = false, add_button: bool = true):
 	if !has_letters(team):
 		team = "Nil and Void Team"
 	if !teams.has(team):
@@ -32,18 +29,19 @@ func add_team(team: String = "???", add_button: bool = true):
 			teams[team]["button"].text = team
 			teams[team]["button"].pressed.connect(self._on_team_btn_pressed.bind(teams[team]["button"]))
 			team_box.add_child(teams[team]["button"])
-		selected_team = team
+			if select:
+				_on_team_btn_pressed(teams[team]["button"])
 		print(teams)
-	else:
-		printerr("")
+		
 
 func rename_team(team: String = "???", name: String = "Name"):
+	if !has_letters(name):
+		name = "Nil And Void"
 	if teams.has(team) and !teams.has(name):
-		add_team(name,false)
+		add_team(name,true,false)
 		teams[name] = teams[team].duplicate(true)
 		remove_team(team,false)
 		teams[name]["button"].text = name
-		_on_team_btn_pressed(teams[name]["button"])
 
 func remove_team(team: String = "???", remove_button: bool = true):
 	if teams.has(team):
@@ -51,8 +49,6 @@ func remove_team(team: String = "???", remove_button: bool = true):
 			teams[team]["button"].queue_free()
 		teams.erase(team)
 		print(teams)
-	else:
-		printerr("Didn't find team " + team)
 
 func _on_team_add_pressed():
 	add_team(team_text_box.text)

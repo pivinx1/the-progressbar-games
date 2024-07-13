@@ -1,8 +1,8 @@
 [gd_scene load_steps=19 format=3 uid="uid://cxayalg56lxxq"]
 
 [ext_resource type="Theme" uid="uid://b48hn2nvb4mhj" path="res://other/theme.tres" id="1_2u7vi"]
-[ext_resource type="Script" path="res://main.gd" id="1_5i5u5"]
 [ext_resource type="Texture2D" uid="uid://31saiowboqgh" path="res://images/male.png" id="2_qeaqh"]
+[ext_resource type="Script" path="res://teams.gd" id="3_wo6sl"]
 [ext_resource type="Texture2D" uid="uid://bqbfuromqryhh" path="res://images/female.png" id="3_yf4do"]
 [ext_resource type="Texture2D" uid="uid://b5w0bttkryivs" path="res://images/idk.png" id="4_mg07t"]
 [ext_resource type="Texture2D" uid="uid://c2gkvgoc4gp16" path="res://images/person.png" id="5_lwbbt"]
@@ -36,7 +36,7 @@ bg_color = Color(0, 0.721569, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kdeen"]
 bg_color = Color(0, 1, 0.156863, 1)
 
-[node name="Control" type="Control" node_paths=PackedStringArray("team_text_box", "team_box", "team_hated_box")]
+[node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -44,13 +44,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_2u7vi")
-script = ExtResource("1_5i5u5")
-team_text_box = NodePath("Teams/Text")
-team_box = NodePath("Teams/VBoxContainer")
-team_hated_box = NodePath("Teams/Hated")
 metadata/_edit_lock_ = true
 
-[node name="Teams" type="Panel" parent="."]
+[node name="Teams" type="Panel" parent="." node_paths=PackedStringArray("team_text_box", "team_box", "team_hated_box")]
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
@@ -59,6 +55,10 @@ offset_top = 42.0
 offset_right = 297.0
 offset_bottom = -331.0
 grow_vertical = 2
+script = ExtResource("3_wo6sl")
+team_text_box = NodePath("Text")
+team_box = NodePath("VBoxContainer")
+team_hated_box = NodePath("Hated")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Teams"]
 layout_mode = 1
@@ -589,8 +589,8 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_pibdy")
 theme_override_styles/hover = SubResource("StyleBoxFlat_kdeen")
 text = "JUST START THE GAME ALREADY!!!!!!"
 
-[connection signal="pressed" from="Teams/Add" to="." method="_on_team_add_pressed"]
-[connection signal="pressed" from="Teams/Remove" to="." method="_on_team_remove_pressed"]
-[connection signal="pressed" from="Teams/Rename" to="." method="_on_team_rename_pressed"]
-[connection signal="pressed" from="Teams/Hated" to="." method="_on_team_hated_pressed"]
+[connection signal="pressed" from="Teams/Add" to="Teams" method="_on_team_add_pressed"]
+[connection signal="pressed" from="Teams/Remove" to="Teams" method="_on_team_remove_pressed"]
+[connection signal="pressed" from="Teams/Rename" to="Teams" method="_on_team_rename_pressed"]
+[connection signal="pressed" from="Teams/Hated" to="Teams" method="_on_team_hated_pressed"]
 [connection signal="pressed" from="Panel/Music" to="AudioStreamPlayer" method="_on_music_pressed"]
