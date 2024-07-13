@@ -1,17 +1,39 @@
-[gd_scene load_steps=14 format=3 uid="uid://cxayalg56lxxq"]
+[gd_scene load_steps=23 format=3 uid="uid://cxayalg56lxxq"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_5i5u5"]
+[ext_resource type="FontFile" uid="uid://dprdbhm75lgy1" path="res://fonts/CORBEL.TTF" id="1_018v7"]
+[ext_resource type="Texture2D" uid="uid://cnpefxdleaf4k" path="res://images/gui/checkbox_checked.png" id="1_107qy"]
+[ext_resource type="Texture2D" uid="uid://7jp26eob8sqq" path="res://images/gui/checkbox_unchecked.png" id="2_dbn2h"]
 [ext_resource type="Texture2D" uid="uid://31saiowboqgh" path="res://images/male.png" id="2_qeaqh"]
+[ext_resource type="Texture2D" uid="uid://dn8b1doe338tv" path="res://images/gui/checkbox_checked_disabled.png" id="2_uw8b1"]
+[ext_resource type="Texture2D" uid="uid://bau5u6lx3pou5" path="res://images/gui/checkbox_disabled.png" id="3_kf3or"]
 [ext_resource type="Texture2D" uid="uid://bqbfuromqryhh" path="res://images/female.png" id="3_yf4do"]
 [ext_resource type="Texture2D" uid="uid://b5w0bttkryivs" path="res://images/idk.png" id="4_mg07t"]
 [ext_resource type="Texture2D" uid="uid://c2gkvgoc4gp16" path="res://images/person.png" id="5_lwbbt"]
+[ext_resource type="FontFile" uid="uid://ih72uldnr01m" path="res://fonts/SEGOESC.TTF" id="5_y57iy"]
 [ext_resource type="Texture2D" uid="uid://bkjmqf5tm7bir" path="res://images/catperson.png" id="6_l56d8"]
+[ext_resource type="StyleBox" uid="uid://dqylt8mdfysdr" path="res://images/gui/scroll.tres" id="6_p0vi2"]
 [ext_resource type="Texture2D" uid="uid://dnnu82chyhdiy" path="res://images/furry.png" id="7_7fwap"]
 [ext_resource type="Texture2D" uid="uid://dgohcvosvnhwf" path="res://images/proto.png" id="8_mwu7c"]
 [ext_resource type="Texture2D" uid="uid://xmxpsjdtfclu" path="res://images/metro_fuck_yeah.png" id="9_d8h0m"]
 [ext_resource type="Texture2D" uid="uid://dgoc61l8cjudm" path="res://images/ew_aero.png" id="10_47ptm"]
 [ext_resource type="Texture2D" uid="uid://cti1n8v1jmei3" path="res://images/diamond_sword.png" id="11_44wdu"]
 [ext_resource type="Texture2D" uid="uid://ckhnaq3ycg7mx" path="res://images/gun.png" id="12_wce2d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_180d0"]
+bg_color = Color(0.187176, 0.187176, 0.187176, 1)
+
+[sub_resource type="Theme" id="Theme_0ncdl"]
+default_font = ExtResource("1_018v7")
+CheckBox/icons/checked = ExtResource("1_107qy")
+CheckBox/icons/checked_disabled = ExtResource("2_uw8b1")
+CheckBox/icons/unchecked = ExtResource("2_dbn2h")
+CheckBox/icons/unchecked_disabled = ExtResource("3_kf3or")
+LineEdit/colors/font_color = Color(0.0509804, 0.129412, 0.25098, 1)
+LineEdit/colors/font_placeholder_color = Color(0.0509804, 0.129412, 0.25098, 0.32549)
+LineEdit/fonts/font = ExtResource("5_y57iy")
+LineEdit/styles/normal = ExtResource("6_p0vi2")
+Panel/styles/panel = SubResource("StyleBoxFlat_180d0")
 
 [sub_resource type="GDScript" id="GDScript_4jmkf"]
 script/source = "extends OptionButton
@@ -27,61 +49,113 @@ func _process(delta):
 	pass
 "
 
-[node name="Control" type="Control" node_paths=PackedStringArray("team_box")]
+[node name="Control" type="Control" node_paths=PackedStringArray("team_text_box", "team_box", "team_hated_box")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_0ncdl")
 script = ExtResource("1_5i5u5")
-team_box = NodePath("Panel/Teams/VBoxContainer")
+team_text_box = NodePath("Teams/Text")
+team_box = NodePath("Teams/VBoxContainer")
+team_hated_box = NodePath("Teams/Hated")
 
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Teams" type="Panel" parent="Panel"]
+[node name="Teams" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_left = 5.0
 offset_top = 42.0
-offset_right = 260.0
+offset_right = 297.0
 offset_bottom = -331.0
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/Teams"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Teams"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -80.0
+offset_bottom = -58.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Person" type="Panel" parent="Panel"]
+[node name="Add" type="Button" parent="Teams"]
+layout_mode = 0
+offset_left = 222.0
+offset_top = 3.0
+offset_right = 240.0
+offset_bottom = 34.0
+text = "+"
+
+[node name="Remove" type="Button" parent="Teams"]
+layout_mode = 0
+offset_left = 265.0
+offset_top = 4.0
+offset_right = 283.0
+offset_bottom = 35.0
+text = "-"
+
+[node name="Rename" type="Button" parent="Teams"]
+layout_mode = 0
+offset_left = 217.0
+offset_top = 43.0
+offset_right = 289.0
+offset_bottom = 74.0
+text = "Rename"
+
+[node name="Hated" type="CheckBox" parent="Teams"]
+layout_mode = 0
+offset_left = 215.0
+offset_top = 73.0
+offset_right = 290.0
+offset_bottom = 104.0
+text = "Hated"
+
+[node name="Text" type="LineEdit" parent="Teams"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 237.0
+offset_right = 280.0
+offset_bottom = 268.0
+placeholder_text = "text for above actions here"
+
+[node name="Person" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_left = 5.0
 offset_top = 360.0
-offset_right = 260.0
+offset_right = 287.0
 offset_bottom = -11.0
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/Person"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Person"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -38.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SelectedTraits" type="Panel" parent="Panel"]
+[node name="Add" type="Button" parent="Person"]
+offset_left = 252.0
+offset_top = 6.0
+offset_right = 270.0
+offset_bottom = 37.0
+text = "+"
+
+[node name="Remove" type="Button" parent="Person"]
+offset_left = 252.0
+offset_top = 47.0
+offset_right = 270.0
+offset_bottom = 78.0
+text = "-"
+
+[node name="SelectedTraits" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
@@ -91,7 +165,7 @@ offset_right = 572.0
 offset_bottom = -338.0
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/SelectedTraits"]
+[node name="VBoxContainer" type="VBoxContainer" parent="SelectedTraits"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -99,7 +173,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="UnselectedTraits" type="Panel" parent="Panel"]
+[node name="UnselectedTraits" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
@@ -108,8 +182,9 @@ offset_top = 360.0
 offset_right = 580.0
 offset_bottom = -17.0
 grow_vertical = 2
+scale = Vector2(1, 1.04046)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/UnselectedTraits"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UnselectedTraits"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -117,7 +192,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="InfoPanel" type="Panel" parent="Panel"]
+[node name="InfoPanel" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
@@ -127,7 +202,7 @@ offset_right = 1120.0
 offset_bottom = -342.0
 grow_vertical = 2
 
-[node name="TabContainer" type="TabContainer" parent="Panel/InfoPanel"]
+[node name="TabContainer" type="TabContainer" parent="InfoPanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -138,20 +213,18 @@ offset_right = -10.0
 offset_bottom = -9.0
 grow_horizontal = 2
 grow_vertical = 2
-current_tab = 1
 
-[node name="Basic Info" type="Control" parent="Panel/InfoPanel/TabContainer"]
-visible = false
+[node name="Basic Info" type="Control" parent="InfoPanel/TabContainer"]
 layout_mode = 2
 
-[node name="NamePanel" type="Panel" parent="Panel/InfoPanel/TabContainer/Basic Info"]
+[node name="NamePanel" type="Panel" parent="InfoPanel/TabContainer/Basic Info"]
 layout_mode = 0
-offset_left = 132.0
-offset_top = 3.0
-offset_right = 383.0
-offset_bottom = 52.0
+offset_left = 6.0
+offset_top = 28.0
+offset_right = 257.0
+offset_bottom = 77.0
 
-[node name="LineEdit" type="LineEdit" parent="Panel/InfoPanel/TabContainer/Basic Info/NamePanel"]
+[node name="LineEdit" type="LineEdit" parent="InfoPanel/TabContainer/Basic Info/NamePanel"]
 layout_mode = 0
 offset_left = 91.0
 offset_top = 10.0
@@ -159,7 +232,7 @@ offset_right = 243.0
 offset_bottom = 41.0
 placeholder_text = "Name"
 
-[node name="Label" type="Label" parent="Panel/InfoPanel/TabContainer/Basic Info/NamePanel"]
+[node name="Label" type="Label" parent="InfoPanel/TabContainer/Basic Info/NamePanel"]
 layout_mode = 0
 offset_left = 20.0
 offset_top = 13.0
@@ -167,14 +240,14 @@ offset_right = 82.0
 offset_bottom = 40.0
 text = "Name:"
 
-[node name="GenderPanel" type="Panel" parent="Panel/InfoPanel/TabContainer/Basic Info"]
+[node name="GenderPanel" type="Panel" parent="InfoPanel/TabContainer/Basic Info"]
 layout_mode = 0
-offset_left = 127.0
-offset_top = 56.0
-offset_right = 378.0
-offset_bottom = 104.0
+offset_left = 9.0
+offset_top = 85.0
+offset_right = 260.0
+offset_bottom = 133.0
 
-[node name="Label" type="Label" parent="Panel/InfoPanel/TabContainer/Basic Info/GenderPanel"]
+[node name="Label" type="Label" parent="InfoPanel/TabContainer/Basic Info/GenderPanel"]
 layout_mode = 0
 offset_left = 10.0
 offset_top = 12.0
@@ -182,7 +255,7 @@ offset_right = 72.0
 offset_bottom = 39.0
 text = "Gender:"
 
-[node name="OptionButton" type="OptionButton" parent="Panel/InfoPanel/TabContainer/Basic Info/GenderPanel"]
+[node name="OptionButton" type="OptionButton" parent="InfoPanel/TabContainer/Basic Info/GenderPanel"]
 layout_mode = 0
 offset_left = 85.0
 offset_top = 3.0
@@ -200,14 +273,14 @@ popup/item_2/icon = ExtResource("4_mg07t")
 popup/item_2/id = 2
 script = SubResource("GDScript_4jmkf")
 
-[node name="SpeciesPanel" type="Panel" parent="Panel/InfoPanel/TabContainer/Basic Info"]
+[node name="SpeciesPanel" type="Panel" parent="InfoPanel/TabContainer/Basic Info"]
 layout_mode = 0
-offset_left = 130.0
-offset_top = 124.0
-offset_right = 381.0
-offset_bottom = 172.0
+offset_left = 6.0
+offset_top = 147.0
+offset_right = 257.0
+offset_bottom = 195.0
 
-[node name="Label" type="Label" parent="Panel/InfoPanel/TabContainer/Basic Info/SpeciesPanel"]
+[node name="Label" type="Label" parent="InfoPanel/TabContainer/Basic Info/SpeciesPanel"]
 layout_mode = 0
 offset_left = 13.0
 offset_top = 10.0
@@ -215,7 +288,7 @@ offset_right = 75.0
 offset_bottom = 37.0
 text = "Species:"
 
-[node name="OptionButton" type="OptionButton" parent="Panel/InfoPanel/TabContainer/Basic Info/SpeciesPanel"]
+[node name="OptionButton" type="OptionButton" parent="InfoPanel/TabContainer/Basic Info/SpeciesPanel"]
 layout_mode = 0
 offset_left = 85.0
 offset_top = 3.0
@@ -236,24 +309,34 @@ popup/item_3/icon = ExtResource("8_mwu7c")
 popup/item_3/id = 3
 script = SubResource("GDScript_4jmkf")
 
-[node name="Preferences" type="Control" parent="Panel/InfoPanel/TabContainer"]
+[node name="CheckBox" type="CheckBox" parent="InfoPanel/TabContainer/Basic Info"]
+z_index = 4
+layout_mode = 0
+offset_left = 398.0
+offset_top = 18.0
+offset_right = 473.0
+offset_bottom = 49.0
+text = "Hated"
+
+[node name="Preferences" type="Control" parent="InfoPanel/TabContainer"]
+visible = false
 layout_mode = 2
 
-[node name="Likes" type="ItemList" parent="Panel/InfoPanel/TabContainer/Preferences"]
+[node name="Likes" type="ItemList" parent="InfoPanel/TabContainer/Preferences"]
 layout_mode = 0
 offset_left = 16.0
 offset_top = 41.0
 offset_right = 148.0
 offset_bottom = 216.0
 
-[node name="Dislikes" type="ItemList" parent="Panel/InfoPanel/TabContainer/Preferences"]
+[node name="Dislikes" type="ItemList" parent="InfoPanel/TabContainer/Preferences"]
 layout_mode = 0
 offset_left = 355.0
 offset_top = 42.0
 offset_right = 480.0
 offset_bottom = 215.0
 
-[node name="Neutral" type="ItemList" parent="Panel/InfoPanel/TabContainer/Preferences"]
+[node name="Neutral" type="ItemList" parent="InfoPanel/TabContainer/Preferences"]
 offset_left = 168.0
 offset_top = 48.0
 offset_right = 317.0
@@ -276,7 +359,7 @@ item_6/icon = ExtResource("7_7fwap")
 item_7/text = "protogens"
 item_7/icon = ExtResource("8_mwu7c")
 
-[node name="Left" type="Button" parent="Panel/InfoPanel/TabContainer/Preferences"]
+[node name="Left" type="Button" parent="InfoPanel/TabContainer/Preferences"]
 layout_mode = 0
 offset_left = 149.0
 offset_top = 7.0
@@ -284,7 +367,7 @@ offset_right = 187.0
 offset_bottom = 38.0
 text = "<<"
 
-[node name="Right" type="Button" parent="Panel/InfoPanel/TabContainer/Preferences"]
+[node name="Right" type="Button" parent="InfoPanel/TabContainer/Preferences"]
 layout_mode = 0
 offset_left = 290.0
 offset_top = 8.0
@@ -292,7 +375,7 @@ offset_right = 328.0
 offset_bottom = 39.0
 text = ">>"
 
-[node name="Label" type="Label" parent="Panel/InfoPanel/TabContainer/Preferences"]
+[node name="Label" type="Label" parent="InfoPanel/TabContainer/Preferences"]
 layout_mode = 0
 offset_left = 203.0
 offset_top = 12.0
@@ -300,7 +383,7 @@ offset_right = 262.0
 offset_bottom = 35.0
 text = "Neutral"
 
-[node name="Label2" type="Label" parent="Panel/InfoPanel/TabContainer/Preferences"]
+[node name="Label2" type="Label" parent="InfoPanel/TabContainer/Preferences"]
 layout_mode = 0
 offset_left = 46.0
 offset_top = 11.0
@@ -308,7 +391,7 @@ offset_right = 105.0
 offset_bottom = 34.0
 text = "Likes"
 
-[node name="Label3" type="Label" parent="Panel/InfoPanel/TabContainer/Preferences"]
+[node name="Label3" type="Label" parent="InfoPanel/TabContainer/Preferences"]
 layout_mode = 0
 offset_left = 378.0
 offset_top = 13.0
@@ -316,11 +399,11 @@ offset_right = 438.0
 offset_bottom = 36.0
 text = "Dislikes"
 
-[node name="Relationships" type="Control" parent="Panel/InfoPanel/TabContainer"]
+[node name="Relationships" type="Control" parent="InfoPanel/TabContainer"]
 visible = false
 layout_mode = 2
 
-[node name="TeamText" type="RichTextLabel" parent="Panel"]
+[node name="TeamText" type="RichTextLabel" parent="."]
 layout_mode = 0
 offset_left = 47.0
 offset_top = 9.0
@@ -329,7 +412,7 @@ offset_bottom = 35.0
 bbcode_enabled = true
 text = "[center][b]TEAM[/b][/center]"
 
-[node name="TeamText2" type="RichTextLabel" parent="Panel"]
+[node name="TeamText2" type="RichTextLabel" parent="."]
 layout_mode = 0
 offset_left = 345.0
 offset_top = 10.0
@@ -338,7 +421,7 @@ offset_bottom = 36.0
 bbcode_enabled = true
 text = "[center][b]TRAITS[/b][/center]"
 
-[node name="InfoText" type="RichTextLabel" parent="Panel"]
+[node name="InfoText" type="RichTextLabel" parent="."]
 layout_mode = 0
 offset_left = 782.0
 offset_top = 13.0
@@ -347,7 +430,7 @@ offset_bottom = 39.0
 bbcode_enabled = true
 text = "[center][b]INFO[/b][/center]"
 
-[node name="PersonText" type="RichTextLabel" parent="Panel"]
+[node name="PersonText" type="RichTextLabel" parent="."]
 layout_mode = 0
 offset_left = 54.0
 offset_top = 326.0
@@ -356,7 +439,7 @@ offset_bottom = 352.0
 bbcode_enabled = true
 text = "[center][b]PERSON[/b][/center]"
 
-[node name="AddTrait" type="Button" parent="Panel"]
+[node name="AddTrait" type="Button" parent="."]
 layout_mode = 0
 offset_left = 316.0
 offset_top = 322.0
@@ -364,7 +447,7 @@ offset_right = 378.0
 offset_bottom = 353.0
 text = "Add ↑"
 
-[node name="RemoveTrait" type="Button" parent="Panel"]
+[node name="RemoveTrait" type="Button" parent="."]
 layout_mode = 0
 offset_left = 465.0
 offset_top = 321.0
@@ -372,7 +455,7 @@ offset_right = 561.0
 offset_bottom = 352.0
 text = "Remove ↓"
 
-[node name="Label" type="Label" parent="Panel"]
+[node name="Label" type="Label" parent="."]
 layout_mode = 0
 offset_left = 595.0
 offset_top = 361.0
@@ -380,3 +463,8 @@ offset_right = 829.0
 offset_bottom = 631.0
 text = "words words words words blah blah blah yap yap yap"
 autowrap_mode = 3
+
+[connection signal="pressed" from="Teams/Add" to="." method="_on_team_add_pressed"]
+[connection signal="pressed" from="Teams/Remove" to="." method="_on_team_remove_pressed"]
+[connection signal="pressed" from="Teams/Rename" to="." method="_on_team_rename_pressed"]
+[connection signal="pressed" from="Teams/Hated" to="." method="_on_team_hated_pressed"]
