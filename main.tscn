@@ -1,0 +1,283 @@
+[gd_scene load_steps=10 format=3 uid="uid://cxayalg56lxxq"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_5i5u5"]
+[ext_resource type="Texture2D" uid="uid://31saiowboqgh" path="res://images/male.png" id="2_qeaqh"]
+[ext_resource type="Texture2D" uid="uid://bqbfuromqryhh" path="res://images/female.png" id="3_yf4do"]
+[ext_resource type="Texture2D" uid="uid://b5w0bttkryivs" path="res://images/idk.png" id="4_mg07t"]
+[ext_resource type="Texture2D" uid="uid://c2gkvgoc4gp16" path="res://images/person.png" id="5_lwbbt"]
+[ext_resource type="Texture2D" uid="uid://bkjmqf5tm7bir" path="res://images/catperson.png" id="6_l56d8"]
+[ext_resource type="Texture2D" uid="uid://dnnu82chyhdiy" path="res://images/furry.png" id="7_7fwap"]
+[ext_resource type="Texture2D" uid="uid://dgohcvosvnhwf" path="res://images/proto.png" id="8_mwu7c"]
+
+[sub_resource type="GDScript" id="GDScript_4jmkf"]
+script/source = "extends OptionButton
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[node name="Control" type="Control" node_paths=PackedStringArray("team_box")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5i5u5")
+team_box = NodePath("Panel/Teams/VBoxContainer")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Teams" type="Panel" parent="Panel"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 42.0
+offset_right = 260.0
+offset_bottom = -331.0
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/Teams"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Person" type="Panel" parent="Panel"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 360.0
+offset_right = 260.0
+offset_bottom = -11.0
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/Person"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SelectedTraits" type="Panel" parent="Panel"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 305.0
+offset_top = 41.0
+offset_right = 572.0
+offset_bottom = -338.0
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/SelectedTraits"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="UnselectedTraits" type="Panel" parent="Panel"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 300.0
+offset_top = 360.0
+offset_right = 580.0
+offset_bottom = -67.0
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/UnselectedTraits"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InfoPanel" type="Panel" parent="Panel"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 603.0
+offset_top = 44.0
+offset_right = 1120.0
+offset_bottom = -342.0
+grow_vertical = 2
+
+[node name="NamePanel" type="Panel" parent="Panel/InfoPanel"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 18.0
+offset_right = 262.0
+offset_bottom = 67.0
+
+[node name="LineEdit" type="LineEdit" parent="Panel/InfoPanel/NamePanel"]
+layout_mode = 0
+offset_left = 91.0
+offset_top = 10.0
+offset_right = 243.0
+offset_bottom = 41.0
+placeholder_text = "Name"
+
+[node name="Label" type="Label" parent="Panel/InfoPanel/NamePanel"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 13.0
+offset_right = 82.0
+offset_bottom = 40.0
+text = "Name:"
+
+[node name="GenderPanel" type="Panel" parent="Panel/InfoPanel"]
+offset_left = 9.0
+offset_top = 73.0
+offset_right = 260.0
+offset_bottom = 121.0
+
+[node name="Label" type="Label" parent="Panel/InfoPanel/GenderPanel"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 12.0
+offset_right = 72.0
+offset_bottom = 39.0
+text = "Gender:"
+
+[node name="OptionButton" type="OptionButton" parent="Panel/InfoPanel/GenderPanel"]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 3.0
+offset_right = 245.0
+offset_bottom = 43.0
+item_count = 3
+popup/item_0/text = "Male"
+popup/item_0/icon = ExtResource("2_qeaqh")
+popup/item_0/id = 0
+popup/item_1/text = "Female"
+popup/item_1/icon = ExtResource("3_yf4do")
+popup/item_1/id = 1
+popup/item_2/text = "Other/IDK"
+popup/item_2/icon = ExtResource("4_mg07t")
+popup/item_2/id = 2
+script = SubResource("GDScript_4jmkf")
+
+[node name="SpeciesPanel" type="Panel" parent="Panel/InfoPanel"]
+offset_left = 10.0
+offset_top = 132.0
+offset_right = 261.0
+offset_bottom = 180.0
+
+[node name="Label" type="Label" parent="Panel/InfoPanel/SpeciesPanel"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 10.0
+offset_right = 75.0
+offset_bottom = 37.0
+text = "Species:"
+
+[node name="OptionButton" type="OptionButton" parent="Panel/InfoPanel/SpeciesPanel"]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 3.0
+offset_right = 245.0
+offset_bottom = 43.0
+item_count = 4
+popup/item_0/text = "Person"
+popup/item_0/icon = ExtResource("5_lwbbt")
+popup/item_0/id = 0
+popup/item_1/text = "Catperson"
+popup/item_1/icon = ExtResource("6_l56d8")
+popup/item_1/id = 1
+popup/item_2/text = "Furry"
+popup/item_2/icon = ExtResource("7_7fwap")
+popup/item_2/id = 2
+popup/item_3/text = "Protogen"
+popup/item_3/icon = ExtResource("8_mwu7c")
+popup/item_3/id = 3
+script = SubResource("GDScript_4jmkf")
+
+[node name="LikesAndDislikes" type="MenuButton" parent="Panel/InfoPanel"]
+layout_mode = 0
+offset_left = 333.0
+offset_top = 18.0
+offset_right = 446.0
+offset_bottom = 49.0
+text = "Likes/Dislikes"
+
+[node name="TeamText" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 9.0
+offset_right = 209.0
+offset_bottom = 35.0
+bbcode_enabled = true
+text = "[center][b]TEAM[/b][/center]"
+
+[node name="TeamText2" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = 345.0
+offset_top = 10.0
+offset_right = 507.0
+offset_bottom = 36.0
+bbcode_enabled = true
+text = "[center][b]TRAITS[/b][/center]"
+
+[node name="InfoText" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = 782.0
+offset_top = 13.0
+offset_right = 944.0
+offset_bottom = 39.0
+bbcode_enabled = true
+text = "[center][b]INFO[/b][/center]"
+
+[node name="PersonText" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 326.0
+offset_right = 216.0
+offset_bottom = 352.0
+bbcode_enabled = true
+text = "[center][b]PERSON[/b][/center]"
+
+[node name="AddTrait" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 316.0
+offset_top = 322.0
+offset_right = 378.0
+offset_bottom = 353.0
+text = "Add ↑"
+
+[node name="RemoveTrait" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 465.0
+offset_top = 321.0
+offset_right = 561.0
+offset_bottom = 352.0
+text = "Remove ↓"
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 302.0
+offset_top = 589.0
+offset_right = 586.0
+offset_bottom = 648.0
+text = "this is the description for the thing on the top hahahahahahhahaha"
+autowrap_mode = 3
