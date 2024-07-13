@@ -1,0 +1,24 @@
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://b48hn2nvb4mhj"]
+
+[ext_resource type="Texture2D" uid="uid://cnpefxdleaf4k" path="res://images/gui/checkbox_checked.png" id="1_0ra8y"]
+[ext_resource type="Texture2D" uid="uid://dn8b1doe338tv" path="res://images/gui/checkbox_checked_disabled.png" id="2_yxiav"]
+[ext_resource type="Texture2D" uid="uid://7jp26eob8sqq" path="res://images/gui/checkbox_unchecked.png" id="3_5w7jv"]
+[ext_resource type="Texture2D" uid="uid://bau5u6lx3pou5" path="res://images/gui/checkbox_disabled.png" id="4_rom6p"]
+[ext_resource type="FontFile" uid="uid://ih72uldnr01m" path="res://fonts/SEGOESC.TTF" id="5_kx36w"]
+[ext_resource type="StyleBox" uid="uid://dqylt8mdfysdr" path="res://images/gui/scroll.tres" id="6_3ektk"]
+[ext_resource type="FontFile" uid="uid://dprdbhm75lgy1" path="res://fonts/CORBEL.TTF" id="7_ir70r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_180d0"]
+bg_color = Color(0.187176, 0.187176, 0.187176, 1)
+
+[resource]
+default_font = ExtResource("7_ir70r")
+CheckBox/icons/checked = ExtResource("1_0ra8y")
+CheckBox/icons/checked_disabled = ExtResource("2_yxiav")
+CheckBox/icons/unchecked = ExtResource("3_5w7jv")
+CheckBox/icons/unchecked_disabled = ExtResource("4_rom6p")
+LineEdit/colors/font_color = Color(0.0509804, 0.129412, 0.25098, 1)
+LineEdit/colors/font_placeholder_color = Color(0.0509804, 0.129412, 0.25098, 0.32549)
+LineEdit/fonts/font = ExtResource("5_kx36w")
+LineEdit/styles/normal = ExtResource("6_3ektk")
+Panel/styles/panel = SubResource("StyleBoxFlat_180d0")
