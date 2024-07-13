@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cxayalg56lxxq"]
+[gd_scene load_steps=19 format=3 uid="uid://cxayalg56lxxq"]
 
 [ext_resource type="Theme" uid="uid://b48hn2nvb4mhj" path="res://other/theme.tres" id="1_2u7vi"]
 [ext_resource type="Script" path="res://main.gd" id="1_5i5u5"]
@@ -30,6 +30,12 @@ func _process(delta):
 	pass
 "
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pibdy"]
+bg_color = Color(0, 0.721569, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kdeen"]
+bg_color = Color(0, 1, 0.156863, 1)
+
 [node name="Control" type="Control" node_paths=PackedStringArray("team_text_box", "team_box", "team_hated_box")]
 layout_mode = 3
 anchors_preset = 15
@@ -42,6 +48,7 @@ script = ExtResource("1_5i5u5")
 team_text_box = NodePath("Teams/Text")
 team_box = NodePath("Teams/VBoxContainer")
 team_hated_box = NodePath("Teams/Hated")
+metadata/_edit_lock_ = true
 
 [node name="Teams" type="Panel" parent="."]
 layout_mode = 1
@@ -62,6 +69,7 @@ offset_right = -80.0
 offset_bottom = -58.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_lock_ = true
 
 [node name="Add" type="Button" parent="Teams"]
 layout_mode = 0
@@ -89,9 +97,9 @@ text = "Rename"
 
 [node name="Hated" type="CheckBox" parent="Teams"]
 layout_mode = 0
-offset_left = 215.0
+offset_left = 221.0
 offset_top = 73.0
-offset_right = 290.0
+offset_right = 285.0
 offset_bottom = 104.0
 text = "Hated"
 
@@ -121,8 +129,10 @@ anchor_bottom = 1.0
 offset_right = -38.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_lock_ = true
 
 [node name="Add" type="Button" parent="Person"]
+layout_mode = 0
 offset_left = 252.0
 offset_top = 6.0
 offset_right = 270.0
@@ -130,6 +140,7 @@ offset_bottom = 37.0
 text = "+"
 
 [node name="Remove" type="Button" parent="Person"]
+layout_mode = 0
 offset_left = 252.0
 offset_top = 47.0
 offset_right = 270.0
@@ -153,6 +164,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_lock_ = true
 
 [node name="UnselectedTraits" type="Panel" parent="."]
 layout_mode = 1
@@ -172,6 +184,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_lock_ = true
 
 [node name="InfoPanel" type="Panel" parent="."]
 layout_mode = 1
@@ -318,6 +331,7 @@ offset_right = 480.0
 offset_bottom = 215.0
 
 [node name="Neutral" type="ItemList" parent="InfoPanel/TabContainer/Preferences"]
+layout_mode = 0
 offset_left = 168.0
 offset_top = 48.0
 offset_right = 317.0
@@ -388,6 +402,63 @@ layout_mode = 2
 visible = false
 layout_mode = 2
 
+[node name="ItemPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 741.0
+offset_top = 380.0
+offset_right = 1099.0
+offset_bottom = 598.0
+
+[node name="ItemsText2" type="RichTextLabel" parent="ItemPanel"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 16.0
+offset_right = 114.0
+offset_bottom = 42.0
+bbcode_enabled = true
+text = "[center][b]PERK[/b][/center]"
+
+[node name="ItemsText5" type="RichTextLabel" parent="ItemPanel"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 101.0
+offset_right = 222.0
+offset_bottom = 127.0
+bbcode_enabled = true
+text = "[center][b]CLOTHES[/b][/center]"
+
+[node name="ItemsText3" type="RichTextLabel" parent="ItemPanel"]
+layout_mode = 0
+offset_left = 127.0
+offset_top = 16.0
+offset_right = 219.0
+offset_bottom = 42.0
+bbcode_enabled = true
+text = "[center][b]ITEM[/b][/center]"
+
+[node name="ItemsText4" type="RichTextLabel" parent="ItemPanel"]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 16.0
+offset_right = 332.0
+offset_bottom = 42.0
+bbcode_enabled = true
+text = "[center][b]PERK ITEM[/b][/center]"
+
+[node name="OptionButton" type="OptionButton" parent="ItemPanel"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 39.0
+offset_right = 134.0
+offset_bottom = 64.0
+item_count = 3
+popup/item_0/text = "Quick Revive"
+popup/item_0/id = 0
+popup/item_1/text = "Juggernog"
+popup/item_1/id = 1
+popup/item_2/text = "Mule Kick"
+popup/item_2/id = 2
+
 [node name="AddTrait" type="Button" parent="."]
 layout_mode = 0
 offset_left = 306.0
@@ -406,10 +477,10 @@ text = "Remove ↓"
 
 [node name="Description" type="Label" parent="."]
 layout_mode = 0
-offset_left = 595.0
-offset_top = 361.0
-offset_right = 829.0
-offset_bottom = 613.0
+offset_left = 575.0
+offset_top = 355.0
+offset_right = 731.0
+offset_bottom = 587.0
 text = "words words words words blah blah blah yap yap yap"
 autowrap_mode = 3
 
@@ -445,6 +516,15 @@ offset_bottom = 39.0
 bbcode_enabled = true
 text = "[center][b]INFO[/b][/center]"
 
+[node name="ItemsText" type="RichTextLabel" parent="Decorations"]
+layout_mode = 0
+offset_left = 845.0
+offset_top = 349.0
+offset_right = 1007.0
+offset_bottom = 375.0
+bbcode_enabled = true
+text = "[center][b]ITEMS[/b][/center]"
+
 [node name="PersonText" type="RichTextLabel" parent="Decorations"]
 layout_mode = 0
 offset_left = 54.0
@@ -466,18 +546,51 @@ text = "Pts: [color=green]1000[/color]"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." node_paths=PackedStringArray("tickbox")]
 stream = ExtResource("20_j7m7d")
 script = ExtResource("21_gfmm7")
-tickbox = NodePath("../Music")
+tickbox = NodePath("../Panel/Music")
 
-[node name="Music" type="CheckBox" parent="."]
+[node name="Panel" type="Panel" parent="."]
 layout_mode = 0
-offset_left = 578.0
-offset_top = 618.0
-offset_right = 645.0
+offset_left = 584.0
+offset_top = 606.0
+offset_right = 1148.0
 offset_bottom = 643.0
+
+[node name="Music" type="CheckBox" parent="Panel"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 8.0
+offset_right = 74.0
+offset_bottom = 33.0
 text = "Music"
+
+[node name="Import" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 86.0
+offset_top = 6.0
+offset_right = 140.0
+offset_bottom = 31.0
+text = "Import"
+
+[node name="Export" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 6.0
+offset_right = 198.0
+offset_bottom = 31.0
+text = "Export"
+
+[node name="Export2" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 6.0
+offset_right = 547.0
+offset_bottom = 31.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_pibdy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kdeen")
+text = "JUST START THE GAME ALREADY!!!!!!"
 
 [connection signal="pressed" from="Teams/Add" to="." method="_on_team_add_pressed"]
 [connection signal="pressed" from="Teams/Remove" to="." method="_on_team_remove_pressed"]
 [connection signal="pressed" from="Teams/Rename" to="." method="_on_team_rename_pressed"]
 [connection signal="pressed" from="Teams/Hated" to="." method="_on_team_hated_pressed"]
-[connection signal="pressed" from="Music" to="AudioStreamPlayer" method="_on_music_pressed"]
+[connection signal="pressed" from="Panel/Music" to="AudioStreamPlayer" method="_on_music_pressed"]
