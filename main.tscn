@@ -1,8 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://cxayalg56lxxq"]
+[gd_scene load_steps=23 format=3 uid="uid://cxayalg56lxxq"]
 
 [ext_resource type="Theme" uid="uid://b48hn2nvb4mhj" path="res://other/theme.tres" id="1_2u7vi"]
 [ext_resource type="Texture2D" uid="uid://31saiowboqgh" path="res://images/male.png" id="2_qeaqh"]
 [ext_resource type="Script" path="res://traits.gd" id="3_7333d"]
+[ext_resource type="Script" path="res://members.gd" id="3_dln3n"]
 [ext_resource type="Script" path="res://teams.gd" id="3_wo6sl"]
 [ext_resource type="Texture2D" uid="uid://bqbfuromqryhh" path="res://images/female.png" id="3_yf4do"]
 [ext_resource type="Texture2D" uid="uid://b5w0bttkryivs" path="res://images/idk.png" id="4_mg07t"]
@@ -14,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://dgoc61l8cjudm" path="res://images/ew_aero.png" id="10_47ptm"]
 [ext_resource type="Texture2D" uid="uid://cti1n8v1jmei3" path="res://images/diamond_sword.png" id="11_44wdu"]
 [ext_resource type="Texture2D" uid="uid://ckhnaq3ycg7mx" path="res://images/gun.png" id="12_wce2d"]
+[ext_resource type="Script" path="res://id.gd" id="18_bpp5o"]
 [ext_resource type="AudioStream" uid="uid://blw56uifvi1w" path="res://music/clockwork.mp3" id="20_j7m7d"]
 [ext_resource type="Script" path="res://audio.gd" id="21_gfmm7"]
 
@@ -36,6 +38,9 @@ bg_color = Color(0, 0.721569, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kdeen"]
 bg_color = Color(0, 1, 0.156863, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_x6ua2"]
+font_size = 8
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -112,7 +117,7 @@ offset_right = 280.0
 offset_bottom = 268.0
 placeholder_text = "text for above actions here"
 
-[node name="Person" type="Panel" parent="."]
+[node name="Person" type="Panel" parent="." node_paths=PackedStringArray("members_box")]
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
@@ -121,6 +126,8 @@ offset_top = 360.0
 offset_right = 287.0
 offset_bottom = -11.0
 grow_vertical = 2
+script = ExtResource("3_dln3n")
+members_box = NodePath("VBoxContainer")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Person"]
 layout_mode = 1
@@ -308,7 +315,6 @@ popup/item_3/id = 3
 script = SubResource("GDScript_4jmkf")
 
 [node name="CheckBox" type="CheckBox" parent="InfoPanel/TabContainer/Basic Info"]
-z_index = 4
 layout_mode = 0
 offset_left = 398.0
 offset_top = 18.0
@@ -408,10 +414,10 @@ layout_mode = 2
 
 [node name="ItemPanel" type="Panel" parent="."]
 layout_mode = 0
-offset_left = 741.0
-offset_top = 380.0
-offset_right = 1099.0
-offset_bottom = 598.0
+offset_left = 740.0
+offset_top = 335.0
+offset_right = 1098.0
+offset_bottom = 553.0
 
 [node name="ItemsText2" type="RichTextLabel" parent="ItemPanel"]
 layout_mode = 0
@@ -484,7 +490,7 @@ layout_mode = 0
 offset_left = 575.0
 offset_top = 355.0
 offset_right = 731.0
-offset_bottom = 587.0
+offset_bottom = 550.0
 text = "words words words words blah blah blah yap yap yap"
 autowrap_mode = 3
 
@@ -522,10 +528,10 @@ text = "[center][b]INFO[/b][/center]"
 
 [node name="ItemsText" type="RichTextLabel" parent="Decorations"]
 layout_mode = 0
-offset_left = 845.0
-offset_top = 349.0
-offset_right = 1007.0
-offset_bottom = 375.0
+offset_left = 833.0
+offset_top = 314.0
+offset_right = 995.0
+offset_bottom = 340.0
 bbcode_enabled = true
 text = "[center][b]ITEMS[/b][/center]"
 
@@ -555,7 +561,7 @@ tickbox = NodePath("../Panel/Music")
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
 offset_left = 584.0
-offset_top = 606.0
+offset_top = 558.0
 offset_right = 1148.0
 offset_bottom = 643.0
 
@@ -592,6 +598,16 @@ offset_bottom = 31.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_pibdy")
 theme_override_styles/hover = SubResource("StyleBoxFlat_kdeen")
 text = "JUST START THE GAME ALREADY!!!!!!"
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 72.0
+offset_right = 336.0
+offset_bottom = 81.0
+text = "Mark ID: "
+label_settings = SubResource("LabelSettings_x6ua2")
+script = ExtResource("18_bpp5o")
 
 [connection signal="pressed" from="Teams/Add" to="Teams" method="_on_team_add_pressed"]
 [connection signal="pressed" from="Teams/Remove" to="Teams" method="_on_team_remove_pressed"]
