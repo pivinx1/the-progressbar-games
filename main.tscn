@@ -221,9 +221,9 @@ layout_mode = 2
 [node name="NamePanel" type="Panel" parent="InfoPanel/TabContainer/Basic Info"]
 layout_mode = 0
 offset_left = 6.0
-offset_top = 28.0
+offset_top = 10.0
 offset_right = 257.0
-offset_bottom = 77.0
+offset_bottom = 59.0
 
 [node name="LineEdit" type="LineEdit" parent="InfoPanel/TabContainer/Basic Info/NamePanel"]
 layout_mode = 0
@@ -241,12 +241,91 @@ offset_right = 82.0
 offset_bottom = 40.0
 text = "Name:"
 
+[node name="DiscordAvatar" type="Panel" parent="InfoPanel/TabContainer/Basic Info"]
+layout_mode = 0
+offset_left = 276.0
+offset_top = 10.0
+offset_right = 484.0
+offset_bottom = 57.0
+
+[node name="LineEdit" type="LineEdit" parent="InfoPanel/TabContainer/Basic Info/DiscordAvatar"]
+layout_mode = 0
+offset_left = 91.0
+offset_top = 10.0
+offset_right = 200.0
+offset_bottom = 41.0
+placeholder_text = "744913734358532296"
+
+[node name="Label" type="Label" parent="InfoPanel/TabContainer/Basic Info/DiscordAvatar"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 7.0
+offset_right = 68.0
+offset_bottom = 44.0
+text = "Discord
+ID:"
+
+[node name="Avatar" type="Panel" parent="InfoPanel/TabContainer/Basic Info"]
+layout_mode = 0
+offset_left = 276.0
+offset_top = 73.0
+offset_right = 484.0
+offset_bottom = 120.0
+
+[node name="LineEdit" type="LineEdit" parent="InfoPanel/TabContainer/Basic Info/Avatar"]
+layout_mode = 0
+offset_left = 91.0
+offset_top = 10.0
+offset_right = 200.0
+offset_bottom = 41.0
+placeholder_text = "744913734358532296"
+
+[node name="Label" type="Label" parent="InfoPanel/TabContainer/Basic Info/Avatar"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 7.0
+offset_right = 68.0
+offset_bottom = 44.0
+text = "Avatar:"
+
+[node name="Avatar2" type="Panel" parent="InfoPanel/TabContainer/Basic Info"]
+layout_mode = 0
+offset_left = 276.0
+offset_top = 129.0
+offset_right = 484.0
+offset_bottom = 176.0
+
+[node name="Label" type="Label" parent="InfoPanel/TabContainer/Basic Info/Avatar2"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 7.0
+offset_right = 68.0
+offset_bottom = 44.0
+text = "Default
+Avatar:"
+
+[node name="OptionButton" type="OptionButton" parent="InfoPanel/TabContainer/Basic Info/Avatar2"]
+layout_mode = 0
+offset_left = 105.0
+offset_top = 10.0
+offset_right = 185.0
+offset_bottom = 35.0
+item_count = 4
+popup/item_0/text = "Grey"
+popup/item_0/id = 0
+popup/item_1/text = "Navy"
+popup/item_1/id = 1
+popup/item_2/text = "Blue"
+popup/item_2/id = 2
+popup/item_3/text = "Cyan"
+popup/item_3/id = 3
+
 [node name="GenderPanel" type="Panel" parent="InfoPanel/TabContainer/Basic Info"]
 layout_mode = 0
 offset_left = 9.0
-offset_top = 85.0
+offset_top = 67.0
 offset_right = 260.0
-offset_bottom = 133.0
+offset_bottom = 115.0
 
 [node name="Label" type="Label" parent="InfoPanel/TabContainer/Basic Info/GenderPanel"]
 layout_mode = 0
@@ -277,9 +356,9 @@ script = SubResource("GDScript_4jmkf")
 [node name="SpeciesPanel" type="Panel" parent="InfoPanel/TabContainer/Basic Info"]
 layout_mode = 0
 offset_left = 6.0
-offset_top = 147.0
+offset_top = 129.0
 offset_right = 257.0
-offset_bottom = 195.0
+offset_bottom = 177.0
 
 [node name="Label" type="Label" parent="InfoPanel/TabContainer/Basic Info/SpeciesPanel"]
 layout_mode = 0
@@ -312,10 +391,10 @@ script = SubResource("GDScript_4jmkf")
 
 [node name="CheckBox" type="CheckBox" parent="InfoPanel/TabContainer/Basic Info"]
 layout_mode = 0
-offset_left = 398.0
-offset_top = 18.0
-offset_right = 473.0
-offset_bottom = 49.0
+offset_left = 418.0
+offset_top = 187.0
+offset_right = 493.0
+offset_bottom = 218.0
 text = "Hated"
 
 [node name="Preferences" type="Control" parent="InfoPanel/TabContainer"]
