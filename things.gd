@@ -14,9 +14,9 @@ enum ItemType {
 	MEDICAL,
 }
 enum GearType {
-	STANDARD,
-	POWERED,
-	COSMETIC,
+	HAT,
+	SHIRT,
+	PANTS,
 }
 var things = {
 	"member" = {
@@ -44,7 +44,7 @@ var things = {
 			"points" = 4,
 			"type" = TraitType.GOOD,
 			"effects" = {"luck" = 5},
-			"icon" = "res://images/lucky.png"
+			"icon" = preload("res://images/lucky.png"),
 		},
 		"cute" = {
 			"name" = "Cute",
@@ -52,21 +52,36 @@ var things = {
 			"points" = 4,
 			"type" = TraitType.GOOD,
 			"effects" = {"cuteness" = 5},
-			"icon" = "res://images/cute.png"
+			"icon" = preload("res://images/cute.png"),
 		},
 		"catperson" = {
 			"name" = "Catperson",
 			"description" = "Kind, cute, but bad at fighting.",
 			"points" = 4,
 			"type" = TraitType.SPECIES,
-			"icon" = "res://images/catperson.png",
+			"icon" = preload("res://images/catperson.png"),
 			"effects" = {
 				"cuteness" = 5, 
 				"pacifism" = 2.5, 
 				"kindness" = 5, 
 				"firearms" = -5, 
-				"melee" = -5
+				"melee" = -5,
+				"medical" = 2.5,
 			},
 		},
+		"sociopath" = {
+			"name" = "Sociopath",
+			"description" = "Will kill, lie and act recklessly.",
+			"points" = 6,
+			"type" = TraitType.NEGATIVE,
+			"icon" = preload("res://images/physchopath.png"),
+			"effects" = {
+				"suicidal" = 2.5,
+				"devious" = 10,
+				"kindness" = -7.5,
+				"happiness" = -2,
+				"luck" = -1,
+			}
+		}
 	},
 };
