@@ -20,7 +20,7 @@ func _on_team_btn_pressed(button):
 		team_hated_box.button_pressed = teams[selected_team]["hated"]
 	print(selected_team)
 
-func add_team(team: String = "???", select: bool = false, add_button: bool = true):
+func add_team(team: String="???", select: bool=false, add_button: bool=true):
 	if !has_letters(team):
 		team = "Nil and Void Team"
 	if !teams.has(team):
@@ -32,18 +32,17 @@ func add_team(team: String = "???", select: bool = false, add_button: bool = tru
 			if select:
 				_on_team_btn_pressed(teams[team]["button"])
 		print(teams)
-		
 
-func rename_team(team: String = "???", name: String = "Name"):
-	if !has_letters(name):
-		name = "Nil And Void"
-	if teams.has(team) and !teams.has(name):
-		add_team(name,true,false)
-		teams[name] = teams[team].duplicate(true)
-		remove_team(team,false)
-		teams[name]["button"].text = name
+func rename_team(team: String="???", to: String="Name"):
+	if !has_letters(to):
+		to = "Nil And Void"
+	if teams.has(team) and !teams.has(to):
+		add_team(to, true, false)
+		teams[to] = teams[team].duplicate(true)
+		remove_team(team, false)
+		teams[to]["button"].text = to
 
-func remove_team(team: String = "???", remove_button: bool = true):
+func remove_team(team: String="???", remove_button: bool=true):
 	if teams.has(team):
 		if remove_button:
 			teams[team]["button"].queue_free()
@@ -58,7 +57,7 @@ func _on_team_hated_pressed():
 	if teams.has(selected_team):
 		teams[selected_team]["hated"] = !teams[selected_team]["hated"]
 func _on_team_rename_pressed():
-	rename_team(selected_team,team_text_box.text)
+	rename_team(selected_team, team_text_box.text)
 
 func _ready():
 	add_team("Team UwU")
@@ -69,5 +68,5 @@ func _ready():
 	teams["Tagged And Cursed"]["hated"] = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass

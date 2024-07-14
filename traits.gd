@@ -24,7 +24,7 @@ func add_trait_buttons_type(type: data.TraitType):
 			button.name = current_perk["name"]
 			button.text = current_perk["name"]
 			button.icon = current_perk["icon"]
-			button.add_theme_color_override("font_color",get_trait_font_color(current_perk["type"]))
+			button.add_theme_color_override("font_color", get_trait_font_color(current_perk["type"]))
 			selected_trait_box.add_child(button)
 
 func _ready():
@@ -32,7 +32,6 @@ func _ready():
 	add_trait_buttons_type(data.TraitType.SPECIES)
 	add_trait_buttons_type(data.TraitType.NEUTRAL)
 	add_trait_buttons_type(data.TraitType.NEGATIVE)
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
