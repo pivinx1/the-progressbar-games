@@ -1,5 +1,15 @@
 extends Node
 
+enum SpeciesType {
+	HUMAN,
+	CATPERSON,
+	FURRY,
+	PROTOGEN,
+	SHEEP,
+	ZOMBIE,
+	GHOST,
+}
+
 enum TraitType {
 	GOOD,
 	NEUTRAL,
@@ -20,6 +30,11 @@ enum GearType {
 }
 var things = {
 	"member" = {
+		"name" = "markverb1",
+		"avatar" = "",
+		"traits" = [],
+		"items" = [],
+		"gear" = [],
 		"stats" = {
 			"firearms" = 0.0,
 			"melee" = 0.0,
@@ -36,6 +51,10 @@ var things = {
 			"devious" = 0.0,
 			"medical" = 0.0
 		},
+	},
+	"team" = {
+		"name" = "Nil And Void",
+
 	},
 	"traits" = {
 		"sociopath" = {
@@ -86,3 +105,9 @@ var things = {
 		
 	},
 };
+var teams = {
+	
+}
+var members = {
+	
+}
