@@ -1,6 +1,4 @@
 extends Panel
-
-var teams = {}
 var people = {}
 var selected_team = "Nil and Void Team"
 @export var team_text_box: LineEdit
@@ -16,46 +14,46 @@ func _on_team_btn_pressed(button):
 	selected_team = button.text
 	for btn in team_box.get_children():
 		btn.disabled = false
-		teams[selected_team]["button"].disabled = true
-		team_hated_box.button_pressed = teams[selected_team]["hated"]
+		data.teams[selected_team]["button"].disabled = true
+		team_hated_box.button_pressed = data.teams[selected_team]["hated"]
 	print(selected_team)
 
 func add_team(team: String="???", select: bool=false, add_button: bool=true):
 	if !has_letters(team):
 		team = "Nil and Void Team"
-	if !teams.has(team):
+	if !data.teams.has(team):
 		if add_button:
-			teams[team] = {"button" = Button.new(), "hated" = false}
-			teams[team]["button"].text = team
-			teams[team]["button"].pressed.connect(self._on_team_btn_pressed.bind(teams[team]["button"]))
-			team_box.add_child(teams[team]["button"])
+			data.teams[team] = {"button" = Button.new(), "hated" = false}
+			data.teams[team]["button"].text = team
+			data.teams[team]["button"].pressed.connect(self._on_team_btn_pressed.bind(data.teams[team]["button"]))
+			team_box.add_child(data.teams[team]["button"])
 			if select:
-				_on_team_btn_pressed(teams[team]["button"])
-		print(teams)
+				_on_team_btn_pressed(data.teams[team]["button"])
+		print(data.teams)
 
 func rename_team(team: String="???", to: String="Name"):
 	if !has_letters(to):
 		to = "Nil And Void"
-	if teams.has(team) and !teams.has(to):
+	if data.teams.has(team) and !data.teams.has(to):
 		add_team(to, true, false)
-		teams[to] = teams[team].duplicate(true)
+		data.teams[to] = data.teams[team].duplicate(true)
 		remove_team(team, false)
-		teams[to]["button"].text = to
+		data.teams[to]["button"].text = to
 
 func remove_team(team: String="???", remove_button: bool=true):
-	if teams.has(team):
+	if data.teams.has(team):
 		if remove_button:
-			teams[team]["button"].queue_free()
-		teams.erase(team)
-		print(teams)
+			data.teams[team]["button"].queue_free()
+		data.teams.erase(team)
+		print(data.teams)
 
 func _on_team_add_pressed():
 	add_team(team_text_box.text)
 func _on_team_remove_pressed():
 	remove_team(selected_team)
 func _on_team_hated_pressed():
-	if teams.has(selected_team):
-		teams[selected_team]["hated"] = !teams[selected_team]["hated"]
+	if data.teams.has(selected_team):
+		data.teams[selected_team]["hated"] = !data.teams[selected_team]["hated"]
 func _on_team_rename_pressed():
 	rename_team(selected_team, team_text_box.text)
 
@@ -65,7 +63,7 @@ func _ready():
 	add_team("Team Normal")
 	add_team("Team Unknown")
 	add_team("Tagged And Cursed")
-	teams["Tagged And Cursed"]["hated"] = true
+	data.teams["Tagged And Cursed"]["hated"] = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

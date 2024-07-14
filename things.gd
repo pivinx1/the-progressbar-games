@@ -10,6 +10,12 @@ enum SpeciesType {
 	GHOST,
 }
 
+enum Gender {
+	MALE,
+	FEMALE,
+	OTHER
+}
+
 enum TraitType {
 	GOOD,
 	NEUTRAL,
@@ -31,6 +37,9 @@ enum GearType {
 var things = {
 	"member" = {
 		"name" = "markverb1",
+		"gender" = Gender.OTHER,
+		"species" = SpeciesType.HUMAN,
+		"hated" = false,
 		"avatar" = "",
 		"traits" = [],
 		"items" = [],
@@ -54,7 +63,7 @@ var things = {
 	},
 	"team" = {
 		"name" = "Nil And Void",
-
+		"hated" = false,
 	},
 	"traits" = {
 		"sociopath" = {
