@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cxayalg56lxxq"]
+[gd_scene load_steps=21 format=3 uid="uid://cxayalg56lxxq"]
 
 [ext_resource type="Theme" uid="uid://b48hn2nvb4mhj" path="res://other/theme.tres" id="1_2u7vi"]
 [ext_resource type="Texture2D" uid="uid://31saiowboqgh" path="res://images/male.png" id="2_qeaqh"]
@@ -15,7 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://dgoc61l8cjudm" path="res://images/ew_aero.png" id="10_47ptm"]
 [ext_resource type="Texture2D" uid="uid://cti1n8v1jmei3" path="res://images/diamond_sword.png" id="11_44wdu"]
 [ext_resource type="Texture2D" uid="uid://ckhnaq3ycg7mx" path="res://images/gun.png" id="12_wce2d"]
-[ext_resource type="Script" path="res://id.gd" id="18_bpp5o"]
 [ext_resource type="AudioStream" uid="uid://blw56uifvi1w" path="res://music/clockwork.mp3" id="20_j7m7d"]
 [ext_resource type="Script" path="res://audio.gd" id="21_gfmm7"]
 
@@ -38,9 +37,6 @@ bg_color = Color(0, 0.721569, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kdeen"]
 bg_color = Color(0, 1, 0.156863, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_x6ua2"]
-font_size = 8
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -598,16 +594,6 @@ offset_bottom = 31.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_pibdy")
 theme_override_styles/hover = SubResource("StyleBoxFlat_kdeen")
 text = "JUST START THE GAME ALREADY!!!!!!"
-
-[node name="Label" type="Label" parent="Panel"]
-layout_mode = 0
-offset_left = 2.0
-offset_top = 72.0
-offset_right = 336.0
-offset_bottom = 81.0
-text = "Mark ID: "
-label_settings = SubResource("LabelSettings_x6ua2")
-script = ExtResource("18_bpp5o")
 
 [connection signal="pressed" from="Teams/Add" to="Teams" method="_on_team_add_pressed"]
 [connection signal="pressed" from="Teams/Remove" to="Teams" method="_on_team_remove_pressed"]
