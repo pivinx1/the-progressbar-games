@@ -6,9 +6,13 @@ var selected_team = "Nil and Void Team"
 @export var team_box: VBoxContainer
 @export var team_hated_box: CheckBox
 
-func has_letters(your_string):
+func has_letters(your_string: String):
 	var regex = RegEx.new()
+	var trim_whitespace = RegEx.new()
+	trim_whitespace.compile("(\\W)+")
 	regex.compile("[a-zA-Z0-9]+")
+	if trim_whitespace.sub(your_string,"",true) == ("markverb"):
+		return false
 	return regex.search(str(your_string))
 	
 func _on_team_btn_pressed(button):
@@ -30,7 +34,6 @@ func add_team(team: String="???", select: bool=false, add_button: bool=true):
 			team_box.add_child(teams[team]["button"])
 			if select:
 				_on_team_btn_pressed(teams[team]["button"])
-		print_rich("[color=green]Added " + team + ", now teams are\n" + JSON.stringify(teams,"\t"))
 
 func rename_team(team: String="???", to: String="Name"):
 	if !has_letters(to):
@@ -40,14 +43,12 @@ func rename_team(team: String="???", to: String="Name"):
 		teams[to] = teams[team].duplicate(true)
 		remove_team(team, false)
 		teams[to]["button"].text = to
-		print_rich("[color=yellow]Renamed " + team + " to " + to + ", now teams are\n" + JSON.stringify(teams,"\t"))
 
 func remove_team(team: String="???", remove_button: bool=true):
 	if teams.has(team):
 		if remove_button:
 			teams[team]["button"].queue_free()
 		teams.erase(team)
-		print_rich("[color=red]Removed " + team + ", now teams are\n" + JSON.stringify(teams,"\t"))
 
 func _on_team_add_pressed():
 	add_team(team_text_box.text)
