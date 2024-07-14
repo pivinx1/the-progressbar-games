@@ -15,17 +15,25 @@ func get_trait_font_color(type: data.TraitType):
 			return Color.LIGHT_BLUE
 		_:
 			return Color.DIM_GRAY
-# Called when the node enters the scene tree for the first time.
-func _ready():
+
+func add_trait_buttons_type(type: data.TraitType):
 	for perk in data.things["traits"]:
-		var current_perk = data.things["traits"][perk]
-		var button = Button.new()
-		button.name = current_perk["name"]
-		button.text = current_perk["name"]
-		button.icon = current_perk["icon"]
-		button.add_theme_color_override("font_color",get_trait_font_color(current_perk["type"]))
-		selected_trait_box.add_child(button)
+		if data.things["traits"][perk]["type"] == type:
+			var current_perk = data.things["traits"][perk]
+			var button = Button.new()
+			button.name = current_perk["name"]
+			button.text = current_perk["name"]
+			button.icon = current_perk["icon"]
+			button.add_theme_color_override("font_color",get_trait_font_color(current_perk["type"]))
+			selected_trait_box.add_child(button)
+
+func _ready():
+	add_trait_buttons_type(data.TraitType.GOOD)
+	add_trait_buttons_type(data.TraitType.SPECIES)
+	add_trait_buttons_type(data.TraitType.NEUTRAL)
+	add_trait_buttons_type(data.TraitType.NEGATIVE)
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass

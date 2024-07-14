@@ -38,6 +38,20 @@ var things = {
 		},
 	},
 	"traits" = {
+		"sociopath" = {
+			"name" = "Sociopath",
+			"description" = "Will kill, lie and act recklessly.",
+			"points" = 6,
+			"type" = TraitType.NEGATIVE,
+			"icon" = preload("res://images/physchopath.png"),
+			"effects" = {
+				"suicidal" = 2.5,
+				"devious" = 10,
+				"kindness" = -7.5,
+				"happiness" = -2,
+				"luck" = -1,
+			}
+		},
 		"lucky" = {
 			"name" = "Lucky",
 			"description" = "Finds more loot.",
@@ -69,19 +83,6 @@ var things = {
 				"medical" = 2.5,
 			},
 		},
-		"sociopath" = {
-			"name" = "Sociopath",
-			"description" = "Will kill, lie and act recklessly.",
-			"points" = 6,
-			"type" = TraitType.NEGATIVE,
-			"icon" = preload("res://images/physchopath.png"),
-			"effects" = {
-				"suicidal" = 2.5,
-				"devious" = 10,
-				"kindness" = -7.5,
-				"happiness" = -2,
-				"luck" = -1,
-			}
-		}
+		
 	},
 };
