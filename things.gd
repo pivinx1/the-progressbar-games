@@ -75,8 +75,9 @@ func has_letters(your_string: String):
 
 var things = {
 	"member" = {
-		"name" = "Безимен Герой",
+		"name" = "markverb1 was here :3",
 		"button" = null,
+		"team" = "block team",
 		"gender" = Gender.OTHER,
 		"species" = SpeciesType.HUMAN,
 		"hated" = false,

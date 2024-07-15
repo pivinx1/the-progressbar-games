@@ -2,13 +2,24 @@ extends Panel
 var teams = data.teams
 var selected_team: String
 @export var team_text_box: LineEdit
+@export var remove_button: Button
+@export var rename_button: Button
 @export var team_box: VBoxContainer
 @export var team_hated_box: CheckBox
-
+signal team_button_pressed(team: String)
 
 	
 func _on_team_btn_pressed(button):
 	selected_team = button.text
+	team_button_pressed.emit(button.text)
+	if selected_team == "No Team":
+		remove_button.disabled = true
+		rename_button.disabled = true
+		team_hated_box.disabled = true
+	else:
+		remove_button.disabled = false
+		rename_button.disabled = false
+		team_hated_box.disabled = false
 	for btn in team_box.get_children():
 		btn.disabled = false
 		teams[selected_team]["button"].disabled = true
@@ -55,6 +66,7 @@ func _on_team_rename_pressed():
 	rename_team(selected_team, team_text_box.text)
 
 func _ready():
+	add_team("No Team")
 	add_team("Team UwU")
 	add_team("Team Sigma")
 	add_team("Team Normal")
