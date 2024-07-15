@@ -1,19 +1,11 @@
 extends Panel
 var teams = data.teams
-var people = {}
-var selected_team = "Nil and Void Team"
+var selected_team: String
 @export var team_text_box: LineEdit
 @export var team_box: VBoxContainer
 @export var team_hated_box: CheckBox
 
-func has_letters(your_string: String):
-	var regex = RegEx.new()
-	var trim_whitespace = RegEx.new()
-	trim_whitespace.compile("(\\W)+")
-	regex.compile("[a-zA-Z0-9]+")
-	if trim_whitespace.sub(your_string,"",true) == ("markverb"):
-		return false
-	return regex.search(str(your_string))
+
 	
 func _on_team_btn_pressed(button):
 	selected_team = button.text
@@ -24,20 +16,22 @@ func _on_team_btn_pressed(button):
 	print(selected_team)
 
 func add_team(team: String="???", select: bool=false, add_button: bool=true):
-	if !has_letters(team):
-		team = "Nil and Void Team"
-	if !teams.has(team):
-		if add_button:
-			teams[team] = {"button" = Button.new(), "hated" = false}
-			teams[team]["button"].text = team
-			teams[team]["button"].pressed.connect(self._on_team_btn_pressed.bind(teams[team]["button"]))
-			team_box.add_child(teams[team]["button"])
-			if select:
-				_on_team_btn_pressed(teams[team]["button"])
+	if !data.has_letters(team):
+		return
+	team = data.resolve_name_conflict(team,teams)
+	if add_button:
+		teams[team] = data.things["team"].duplicate()
+		teams[team]["button"] = Button.new()
+		teams[team]["button"].text = team
+		teams[team]["button"].pressed.connect(self._on_team_btn_pressed.bind(teams[team]["button"]))
+		team_box.add_child(teams[team]["button"])
+		if select:
+			_on_team_btn_pressed(teams[team]["button"])
+		print(teams)
 
 func rename_team(team: String="???", to: String="Name"):
-	if !has_letters(to):
-		to = "Nil And Void"
+	if !data.has_letters(to):
+		return
 	if teams.has(team) and !teams.has(to):
 		add_team(to, true, false)
 		teams[to] = teams[team].duplicate(true)
