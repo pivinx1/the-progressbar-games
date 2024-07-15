@@ -24,7 +24,7 @@ func _on_team_btn_pressed(button):
 		btn.disabled = false
 		teams[selected_team]["button"].disabled = true
 		team_hated_box.button_pressed = teams[selected_team]["hated"]
-	print(selected_team)
+	#print(selected_team)
 
 func add_team(team: String="???", select: bool=false, add_button: bool=true):
 	if !data.has_letters(team):
@@ -38,7 +38,7 @@ func add_team(team: String="???", select: bool=false, add_button: bool=true):
 		team_box.add_child(teams[team]["button"])
 		if select:
 			_on_team_btn_pressed(teams[team]["button"])
-		print(teams)
+		#print(teams)
 
 func rename_team(team: String="???", to: String="Name"):
 	if !data.has_letters(to):

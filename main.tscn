@@ -27,13 +27,13 @@
 [ext_resource type="Texture2D" uid="uid://iioy2x3lyalj" path="res://images/avatars/pink.png" id="14_1m6qf"]
 [ext_resource type="Texture2D" uid="uid://dvg6s5xmpfick" path="res://images/avatars/purple.png" id="15_p8h8b"]
 [ext_resource type="Texture2D" uid="uid://djg40lxfwumle" path="res://images/avatars/defPic.jpg" id="16_pbcry"]
-[ext_resource type="AudioStream" uid="uid://blw56uifvi1w" path="res://music/clockwork.mp3" id="20_j7m7d"]
 [ext_resource type="Script" path="res://audio.gd" id="21_gfmm7"]
 [ext_resource type="Texture2D" uid="uid://dyb04iiv8j8by" path="res://images/perks/quickrevive.png" id="27_rnp5g"]
 [ext_resource type="Texture2D" uid="uid://cc0shm4fxc1js" path="res://images/perks/juggernog.png" id="28_f654x"]
 [ext_resource type="Texture2D" uid="uid://blsmmbu8hlcrf" path="res://images/perks/doubletap.png" id="29_dxo8f"]
 [ext_resource type="Texture2D" uid="uid://y2kj6hmj6v10" path="res://images/perks/mule_kick.png" id="30_7w2e4"]
 [ext_resource type="Texture2D" uid="uid://ddehj88d5otlh" path="res://images/lucky.png" id="31_bknid"]
+[ext_resource type="AudioStream" uid="uid://qa8t7bc2dryg" path="res://music/themeremix.mp3" id="33_ha7ra"]
 
 [sub_resource type="GDScript" id="GDScript_4jmkf"]
 script/source = "extends OptionButton
@@ -753,7 +753,7 @@ bbcode_enabled = true
 text = "Pts: [color=green]1000[/color]"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." node_paths=PackedStringArray("tickbox")]
-stream = ExtResource("20_j7m7d")
+stream = ExtResource("33_ha7ra")
 script = ExtResource("21_gfmm7")
 tickbox = NodePath("../Panel/Music")
 
@@ -798,9 +798,11 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_pibdy")
 theme_override_styles/hover = SubResource("StyleBoxFlat_kdeen")
 text = "JUST START THE GAME ALREADY!!!!!!"
 
+[connection signal="team_button_pressed" from="Teams" to="Person" method="_on_teams_team_button_pressed"]
 [connection signal="pressed" from="Teams/Add" to="Teams" method="_on_team_add_pressed"]
 [connection signal="pressed" from="Teams/Remove" to="Teams" method="_on_team_remove_pressed"]
 [connection signal="pressed" from="Teams/Rename" to="Teams" method="_on_team_rename_pressed"]
 [connection signal="pressed" from="Teams/Hated" to="Teams" method="_on_team_hated_pressed"]
 [connection signal="pressed" from="Person/Add" to="Person" method="_on_add_pressed"]
+[connection signal="pressed" from="Person/Remove" to="Person" method="_on_remove_pressed"]
 [connection signal="pressed" from="Panel/Music" to="AudioStreamPlayer" method="_on_music_pressed"]

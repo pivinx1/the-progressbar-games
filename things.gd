@@ -77,7 +77,7 @@ var things = {
 	"member" = {
 		"name" = "markverb1 was here :3",
 		"button" = null,
-		"team" = "block team",
+		"team" = "No Team",
 		"gender" = Gender.OTHER,
 		"species" = SpeciesType.HUMAN,
 		"hated" = false,
@@ -165,6 +165,7 @@ var things = {
 var teams = {
 	
 }
+
 var members = {
 	
 }
