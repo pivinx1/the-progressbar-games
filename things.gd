@@ -1,5 +1,7 @@
 extends Node
 
+var token: String
+
 # Enums
 
 enum SpeciesType {
@@ -37,6 +39,8 @@ enum GearType {
 	PANTS,
 }
 
+# Funcs
+
 var names = [
 		"Mark", "Processes", "Theta", "Makarov", "Gordon Freeman", "Proto", "The Fake BarOS 15",
 		"Max Design Pro", "Sphere", "Shirley", "markverb1 was here :3",
@@ -73,7 +77,24 @@ func has_letters(your_string: String):
 		return false
 	return regex.search(str(your_string))
 
+var config = ConfigFile.new()
+var path = "./saves/config.cfg"
+func _ready():
+	var err = config.load(path)
+	if err != OK:
+		for section in things["config_file"].keys():
+			for key in things["config_file"][section]:
+				config.set_value(section,key,things["config_file"][section][key])
+	config.save(path)
+	
+# Item Definitons
+
 var things = {
+	"config_file" = {
+		"Misc" = {
+			"token": "",
+		}
+	},
 	"member" = {
 		"name" = "markverb1 was here :3",
 		"button" = null,
@@ -162,6 +183,9 @@ var things = {
 		
 	},
 };
+
+# Variables
+
 var teams = {
 	
 }
