@@ -38,6 +38,12 @@ enum GearType {
 	SHIRT,
 	PANTS,
 }
+enum GuiType {
+	BOOL,
+	LINEEDIT,
+	DROPDOWN,
+}
+
 
 # Funcs
 
@@ -184,6 +190,35 @@ var things = {
 		},
 		
 	},
+	"lists" = {
+		"basic_info" = {
+			"name" = {
+				"type" = GuiType.LINEEDIT,
+				"placeholder" = "Name",
+			},
+			"gender" = {
+				"type" = GuiType.DROPDOWN,
+				"items" = {
+					"male" = {
+						"text" = "Male",
+						"icon" = preload("res://images/male.png"),
+						"meta" = Gender.MALE
+					},
+					"female" = {
+						"text" = "Female",
+						"icon" = preload("res://images/female.png"),
+						"meta" = Gender.FEMALE
+					},
+					"other" = {
+						"text" = "Other/IDK",
+						"icon" = preload("res://images/idk.png"),
+						"meta" = Gender.OTHER
+					},
+				},
+			},
+		},
+
+	}
 };
 
 # markverb1 says: probably not a very good idea to store every single global

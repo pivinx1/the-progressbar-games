@@ -238,7 +238,35 @@ offset_left = 223.0
 offset_top = 36.0
 offset_right = 445.0
 offset_bottom = 68.0
-placeholder_text = "Insert Name Here"
+placeholder_text = "Text Edit"
+editable = false
+
+[node name="CheckBox" type="CheckBox" parent="InfoPanel/TabContainer/Basic Info"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.032
+anchor_bottom = 0.036
+offset_left = 223.0
+offset_top = 85.0
+offset_right = 282.064
+offset_bottom = 93.972
+disabled = true
+text = "Boolean"
+
+[node name="OptionButton" type="OptionButton" parent="InfoPanel/TabContainer/Basic Info"]
+layout_mode = 0
+offset_left = 219.0
+offset_top = 130.0
+offset_right = 436.0
+offset_bottom = 166.0
+disabled = true
+text_overrun_behavior = 3
+clip_text = true
+item_count = 1
+selected = 0
+fit_to_longest_item = false
+popup/item_0/text = "Dropdown"
+popup/item_0/id = 0
 
 [node name="Preferences" type="Control" parent="InfoPanel/TabContainer"]
 visible = false
