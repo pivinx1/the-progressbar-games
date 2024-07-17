@@ -60,7 +60,6 @@ func _on_remove_pressed():
 	remove_member(selected_member)
 
 func _on_team_button_pressed(_team):
-	print("clearing member bochs")
 	member_box.clear()
 	for member_name in members:
 		if members[member_name]["team"] == data.selected_team:
