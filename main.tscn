@@ -1,33 +1,18 @@
-[gd_scene load_steps=39 format=3 uid="uid://cxayalg56lxxq"]
+[gd_scene load_steps=23 format=3 uid="uid://cxayalg56lxxq"]
 
 [ext_resource type="Theme" uid="uid://b48hn2nvb4mhj" path="res://other/theme.tres" id="1_2u7vi"]
 [ext_resource type="Script" path="res://things.gd" id="2_2cr7n"]
-[ext_resource type="Texture2D" uid="uid://31saiowboqgh" path="res://images/male.png" id="2_qeaqh"]
 [ext_resource type="Script" path="res://traits.gd" id="3_7333d"]
 [ext_resource type="Script" path="res://members.gd" id="3_dln3n"]
 [ext_resource type="Script" path="res://teams.gd" id="3_wo6sl"]
-[ext_resource type="Texture2D" uid="uid://bqbfuromqryhh" path="res://images/female.png" id="3_yf4do"]
-[ext_resource type="Texture2D" uid="uid://b5w0bttkryivs" path="res://images/idk.png" id="4_mg07t"]
-[ext_resource type="Texture2D" uid="uid://cpw0f35cx2kd6" path="res://images/avatars/gray.png" id="5_36jah"]
 [ext_resource type="Texture2D" uid="uid://c2gkvgoc4gp16" path="res://images/person.png" id="5_lwbbt"]
 [ext_resource type="Texture2D" uid="uid://bkjmqf5tm7bir" path="res://images/catperson.png" id="6_l56d8"]
-[ext_resource type="Texture2D" uid="uid://dim0wgducy7xo" path="res://images/avatars/navy.png" id="6_oedxc"]
 [ext_resource type="Texture2D" uid="uid://dnnu82chyhdiy" path="res://images/furry.png" id="7_7fwap"]
-[ext_resource type="Texture2D" uid="uid://s7ctfqm6cwq6" path="res://images/avatars/blue.png" id="7_bjr07"]
-[ext_resource type="Texture2D" uid="uid://48vfuhn0s2o6" path="res://images/avatars/cyan.png" id="8_mf7rg"]
 [ext_resource type="Texture2D" uid="uid://dgohcvosvnhwf" path="res://images/proto.png" id="8_mwu7c"]
-[ext_resource type="Texture2D" uid="uid://ck8742qs25tc8" path="res://images/avatars/green.png" id="9_7kniw"]
 [ext_resource type="Texture2D" uid="uid://xmxpsjdtfclu" path="res://images/metro_fuck_yeah.png" id="9_d8h0m"]
 [ext_resource type="Texture2D" uid="uid://dgoc61l8cjudm" path="res://images/ew_aero.png" id="10_47ptm"]
-[ext_resource type="Texture2D" uid="uid://byhya3eb81vt3" path="res://images/avatars/olive.png" id="10_btfx0"]
-[ext_resource type="Texture2D" uid="uid://btggeid0mu6xs" path="res://images/avatars/yellow.png" id="11_5pboc"]
 [ext_resource type="Texture2D" uid="uid://cti1n8v1jmei3" path="res://images/diamond_sword.png" id="11_44wdu"]
-[ext_resource type="Texture2D" uid="uid://l4elelcaox3q" path="res://images/avatars/orange.png" id="12_2c3jd"]
 [ext_resource type="Texture2D" uid="uid://ckhnaq3ycg7mx" path="res://images/gun.png" id="12_wce2d"]
-[ext_resource type="Texture2D" uid="uid://d3gf48qs5nlbj" path="res://images/avatars/red.png" id="13_kxh7q"]
-[ext_resource type="Texture2D" uid="uid://iioy2x3lyalj" path="res://images/avatars/pink.png" id="14_1m6qf"]
-[ext_resource type="Texture2D" uid="uid://dvg6s5xmpfick" path="res://images/avatars/purple.png" id="15_p8h8b"]
-[ext_resource type="Texture2D" uid="uid://djg40lxfwumle" path="res://images/avatars/defPic.jpg" id="16_pbcry"]
 [ext_resource type="Script" path="res://audio.gd" id="21_gfmm7"]
 [ext_resource type="Texture2D" uid="uid://dyb04iiv8j8by" path="res://images/perks/quickrevive.png" id="27_rnp5g"]
 [ext_resource type="Texture2D" uid="uid://cc0shm4fxc1js" path="res://images/perks/juggernog.png" id="28_f654x"]
@@ -35,19 +20,6 @@
 [ext_resource type="Texture2D" uid="uid://y2kj6hmj6v10" path="res://images/perks/mule_kick.png" id="30_7w2e4"]
 [ext_resource type="Texture2D" uid="uid://ddehj88d5otlh" path="res://images/lucky.png" id="31_bknid"]
 [ext_resource type="AudioStream" uid="uid://qa8t7bc2dryg" path="res://music/themeremix.mp3" id="33_ha7ra"]
-
-[sub_resource type="GDScript" id="GDScript_4jmkf"]
-script/source = "extends OptionButton
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-	pass
-"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pibdy"]
 bg_color = Color(0, 0.721569, 0, 1)
@@ -79,7 +51,7 @@ script = ExtResource("3_wo6sl")
 team_text_box = NodePath("Text")
 remove_button = NodePath("Remove")
 rename_button = NodePath("Rename")
-team_box = NodePath("ScrollContainer/VBoxContainer")
+team_box = NodePath("ItemList")
 team_hated_box = NodePath("Hated")
 
 [node name="Add" type="Button" parent="Teams"]
@@ -122,17 +94,14 @@ offset_right = 280.0
 offset_bottom = 268.0
 placeholder_text = "text for above actions here"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Teams"]
+[node name="ItemList" type="ItemList" parent="Teams"]
 layout_mode = 0
-offset_right = 215.0
-offset_bottom = 235.0
-horizontal_scroll_mode = 0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = 213.0
+offset_bottom = 228.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Teams/ScrollContainer"]
-layout_mode = 2
-metadata/_edit_lock_ = true
-
-[node name="Person" type="Panel" parent="." node_paths=PackedStringArray("member_box")]
+[node name="Person" type="Panel" parent="." node_paths=PackedStringArray("member_box", "team_panel")]
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
@@ -142,7 +111,8 @@ offset_right = 287.0
 offset_bottom = -11.0
 grow_vertical = 2
 script = ExtResource("3_dln3n")
-member_box = NodePath("ScrollContainer/VBoxContainer")
+member_box = NodePath("ItemList")
+team_panel = NodePath("../Teams")
 
 [node name="Add" type="Button" parent="Person"]
 layout_mode = 0
@@ -160,21 +130,12 @@ offset_right = 276.0
 offset_bottom = 80.0
 text = "-"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Person"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 5.0
-offset_right = -30.0
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_lock_ = true
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Person/ScrollContainer"]
-clip_contents = true
-layout_mode = 2
-alignment = 1
+[node name="ItemList" type="ItemList" parent="Person"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 4.0
+offset_right = 255.0
+offset_bottom = 272.0
 
 [node name="SelectedTraits" type="Panel" parent="." node_paths=PackedStringArray("selected_trait_box", "unselected_trait_box")]
 layout_mode = 1
@@ -243,216 +204,38 @@ grow_vertical = 2
 [node name="Basic Info" type="Control" parent="InfoPanel/TabContainer"]
 layout_mode = 2
 
-[node name="NamePanel" type="Panel" parent="InfoPanel/TabContainer/Basic Info"]
-layout_mode = 0
-offset_left = 6.0
-offset_top = 10.0
-offset_right = 257.0
-offset_bottom = 59.0
-
-[node name="LineEdit" type="LineEdit" parent="InfoPanel/TabContainer/Basic Info/NamePanel"]
-layout_mode = 0
-offset_left = 91.0
-offset_top = 10.0
-offset_right = 243.0
-offset_bottom = 41.0
-placeholder_text = "Name"
-
-[node name="Label" type="Label" parent="InfoPanel/TabContainer/Basic Info/NamePanel"]
-layout_mode = 0
-offset_left = 20.0
-offset_top = 13.0
-offset_right = 82.0
-offset_bottom = 40.0
-text = "Name:"
-
-[node name="DiscordAvatar" type="Panel" parent="InfoPanel/TabContainer/Basic Info"]
-layout_mode = 0
-offset_left = 276.0
-offset_top = 10.0
-offset_right = 484.0
-offset_bottom = 57.0
-
-[node name="LineEdit" type="LineEdit" parent="InfoPanel/TabContainer/Basic Info/DiscordAvatar"]
-layout_mode = 0
-offset_left = 66.0
-offset_top = 10.0
-offset_right = 200.0
-offset_bottom = 41.0
-placeholder_text = "744913734358532296"
-
-[node name="Label" type="Label" parent="InfoPanel/TabContainer/Basic Info/DiscordAvatar"]
-layout_mode = 0
-offset_left = 6.0
-offset_top = 7.0
-offset_right = 68.0
-offset_bottom = 44.0
-text = "Discord
-ID:"
-
-[node name="Avatar" type="Panel" parent="InfoPanel/TabContainer/Basic Info"]
-layout_mode = 0
-offset_left = 276.0
-offset_top = 73.0
-offset_right = 484.0
-offset_bottom = 120.0
-
-[node name="LineEdit" type="LineEdit" parent="InfoPanel/TabContainer/Basic Info/Avatar"]
-layout_mode = 0
-offset_left = 58.0
-offset_top = 10.0
-offset_right = 200.0
-offset_bottom = 41.0
-placeholder_text = "https://i.imgur.com/cmiyeP5.png"
-
-[node name="Label" type="Label" parent="InfoPanel/TabContainer/Basic Info/Avatar"]
-layout_mode = 0
-offset_left = 3.0
-offset_top = 6.0
-offset_right = 55.0
-offset_bottom = 43.0
-text = "Avatar:"
-
-[node name="DefaultAvatar" type="Panel" parent="InfoPanel/TabContainer/Basic Info"]
-layout_mode = 0
-offset_left = 276.0
-offset_top = 129.0
-offset_right = 484.0
-offset_bottom = 176.0
-
-[node name="Label" type="Label" parent="InfoPanel/TabContainer/Basic Info/DefaultAvatar"]
-layout_mode = 0
-offset_left = 6.0
-offset_top = 7.0
-offset_right = 64.0
-offset_bottom = 44.0
-text = "Default
-Avatar:"
-
-[node name="OptionButton" type="OptionButton" parent="InfoPanel/TabContainer/Basic Info/DefaultAvatar"]
-layout_mode = 0
-offset_left = 73.0
-offset_top = 2.0
-offset_right = 197.0
-offset_bottom = 42.0
-clip_text = true
-item_count = 12
-fit_to_longest_item = false
-popup/item_0/text = "Grey"
-popup/item_0/icon = ExtResource("5_36jah")
-popup/item_0/id = 0
-popup/item_1/text = "Navy"
-popup/item_1/icon = ExtResource("6_oedxc")
-popup/item_1/id = 1
-popup/item_2/text = "Blue"
-popup/item_2/icon = ExtResource("7_bjr07")
-popup/item_2/id = 2
-popup/item_3/text = "Cyan"
-popup/item_3/icon = ExtResource("8_mf7rg")
-popup/item_3/id = 3
-popup/item_4/text = "Green"
-popup/item_4/icon = ExtResource("9_7kniw")
-popup/item_4/id = 4
-popup/item_5/text = "Olive"
-popup/item_5/icon = ExtResource("10_btfx0")
-popup/item_5/id = 5
-popup/item_6/text = "Yellow"
-popup/item_6/icon = ExtResource("11_5pboc")
-popup/item_6/id = 6
-popup/item_7/text = "Orange"
-popup/item_7/icon = ExtResource("12_2c3jd")
-popup/item_7/id = 7
-popup/item_8/text = "Red"
-popup/item_8/icon = ExtResource("13_kxh7q")
-popup/item_8/id = 8
-popup/item_9/text = "Pink"
-popup/item_9/icon = ExtResource("14_1m6qf")
-popup/item_9/id = 9
-popup/item_10/text = "Purple"
-popup/item_10/icon = ExtResource("15_p8h8b")
-popup/item_10/id = 10
-popup/item_11/text = "MGames"
-popup/item_11/icon = ExtResource("16_pbcry")
-popup/item_11/id = 11
-
-[node name="GenderPanel" type="Panel" parent="InfoPanel/TabContainer/Basic Info"]
-layout_mode = 0
-offset_left = 9.0
-offset_top = 67.0
-offset_right = 260.0
-offset_bottom = 115.0
-
-[node name="Label" type="Label" parent="InfoPanel/TabContainer/Basic Info/GenderPanel"]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 12.0
-offset_right = 72.0
-offset_bottom = 39.0
-text = "Gender:"
-
-[node name="OptionButton" type="OptionButton" parent="InfoPanel/TabContainer/Basic Info/GenderPanel"]
-layout_mode = 0
-offset_left = 85.0
-offset_top = 3.0
-offset_right = 245.0
-offset_bottom = 43.0
-item_count = 3
-selected = 2
-popup/item_0/text = "Male"
-popup/item_0/icon = ExtResource("2_qeaqh")
-popup/item_0/id = 0
-popup/item_1/text = "Female"
-popup/item_1/icon = ExtResource("3_yf4do")
-popup/item_1/id = 1
-popup/item_2/text = "Other/IDK"
-popup/item_2/icon = ExtResource("4_mg07t")
-popup/item_2/id = 2
-script = SubResource("GDScript_4jmkf")
-
-[node name="SpeciesPanel" type="Panel" parent="InfoPanel/TabContainer/Basic Info"]
-layout_mode = 0
-offset_left = 6.0
-offset_top = 129.0
-offset_right = 257.0
-offset_bottom = 177.0
-
-[node name="Label" type="Label" parent="InfoPanel/TabContainer/Basic Info/SpeciesPanel"]
+[node name="List" type="ItemList" parent="InfoPanel/TabContainer/Basic Info"]
 layout_mode = 0
 offset_left = 13.0
+offset_top = 9.0
+offset_right = 168.0
+offset_bottom = 215.0
+item_count = 7
+item_0/text = "name"
+item_1/text = "gender"
+item_2/text = "species"
+item_3/text = "avatar_type"
+item_4/text = "image_link_avatar"
+item_4/disabled = true
+item_5/text = "discord_avatar"
+item_5/disabled = true
+item_6/text = "preset_avatar"
+
+[node name="Label" type="Label" parent="InfoPanel/TabContainer/Basic Info"]
+layout_mode = 0
+offset_left = 228.0
 offset_top = 10.0
-offset_right = 75.0
-offset_bottom = 37.0
-text = "Species:"
+offset_right = 434.0
+offset_bottom = 27.0
+text = "Selected: Name, Type: LineEdit"
 
-[node name="OptionButton" type="OptionButton" parent="InfoPanel/TabContainer/Basic Info/SpeciesPanel"]
+[node name="LineEdit" type="LineEdit" parent="InfoPanel/TabContainer/Basic Info"]
 layout_mode = 0
-offset_left = 85.0
-offset_top = 3.0
-offset_right = 245.0
-offset_bottom = 43.0
-item_count = 4
-selected = 0
-popup/item_0/text = "Person"
-popup/item_0/icon = ExtResource("5_lwbbt")
-popup/item_0/id = 0
-popup/item_1/text = "Catperson"
-popup/item_1/icon = ExtResource("6_l56d8")
-popup/item_1/id = 1
-popup/item_2/text = "Furry"
-popup/item_2/icon = ExtResource("7_7fwap")
-popup/item_2/id = 2
-popup/item_3/text = "Protogen"
-popup/item_3/icon = ExtResource("8_mwu7c")
-popup/item_3/id = 3
-script = SubResource("GDScript_4jmkf")
-
-[node name="CheckBox" type="CheckBox" parent="InfoPanel/TabContainer/Basic Info"]
-layout_mode = 0
-offset_left = 418.0
-offset_top = 187.0
-offset_right = 493.0
-offset_bottom = 218.0
-text = "Hated"
+offset_left = 223.0
+offset_top = 36.0
+offset_right = 445.0
+offset_bottom = 68.0
+placeholder_text = "Insert Name Here"
 
 [node name="Preferences" type="Control" parent="InfoPanel/TabContainer"]
 visible = false
@@ -729,10 +512,10 @@ text = "[center][b]INFO[/b][/center]"
 
 [node name="ItemsText" type="RichTextLabel" parent="Decorations"]
 layout_mode = 0
-offset_left = 883.0
-offset_top = 308.0
-offset_right = 1045.0
-offset_bottom = 334.0
+offset_left = 907.0
+offset_top = 312.0
+offset_right = 1069.0
+offset_bottom = 332.0
 bbcode_enabled = true
 text = "[center][b]ITEMS[/b][/center]"
 
@@ -800,11 +583,12 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_pibdy")
 theme_override_styles/hover = SubResource("StyleBoxFlat_kdeen")
 text = "JUST START THE GAME ALREADY!!!!!!"
 
-[connection signal="team_button_pressed" from="Teams" to="Person" method="_on_teams_team_button_pressed"]
+[connection signal="team_button_pressed" from="Teams" to="Person" method="_on_team_button_pressed"]
 [connection signal="pressed" from="Teams/Add" to="Teams" method="_on_team_add_pressed"]
 [connection signal="pressed" from="Teams/Remove" to="Teams" method="_on_team_remove_pressed"]
 [connection signal="pressed" from="Teams/Rename" to="Teams" method="_on_team_rename_pressed"]
 [connection signal="pressed" from="Teams/Hated" to="Teams" method="_on_team_hated_pressed"]
+[connection signal="item_selected" from="Teams/ItemList" to="Teams" method="_on_item_list_item_selected"]
 [connection signal="pressed" from="Person/Add" to="Person" method="_on_add_pressed"]
 [connection signal="pressed" from="Person/Remove" to="Person" method="_on_remove_pressed"]
 [connection signal="pressed" from="Panel/Music" to="AudioStreamPlayer" method="_on_music_pressed"]

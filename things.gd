@@ -77,6 +77,8 @@ func has_letters(your_string: String):
 		return false
 	return regex.search(str(your_string))
 
+# Config File
+
 var config = ConfigFile.new()
 var path = "./saves/config.cfg"
 func _ready():
@@ -85,7 +87,7 @@ func _ready():
 		for section in things["config_file"].keys():
 			for key in things["config_file"][section]:
 				config.set_value(section,key,things["config_file"][section][key])
-	config.save(path)
+		config.save(path)
 	
 # Item Definitons
 
@@ -184,6 +186,9 @@ var things = {
 	},
 };
 
+# markverb1 says: probably not a very good idea to store every single global
+# variable in one file, but whatever
+
 # Variables
 
 var teams = {
@@ -193,3 +198,6 @@ var teams = {
 var members = {
 	
 }
+
+var selected_team: String
+var selected_member: String

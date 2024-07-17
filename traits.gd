@@ -1,7 +1,7 @@
 extends Panel
-
 @export var selected_trait_box: VBoxContainer
 @export var unselected_trait_box: VBoxContainer
+
 
 func get_trait_font_color(type: data.TraitType):
 	match type:

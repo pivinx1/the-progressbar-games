@@ -1,8 +1,15 @@
 extends Node
 
-@export var member_box: VBoxContainer
+# markverb1 says: this code is laughably bad. it does exactly the same thing as teams.gd yet
+# i didn't put it in things.gd. dunno why i split teams and members. technically
+# teams.gd and members.gd started off as main.gd, extending res://Control.
+
+# these comments are a waste of my time
+
+@export var member_box: ItemList
+@export var team_panel: Panel
 var members = data.members
-var selected_member: String
+var selected_member = data.selected_member
 
 func _on_member_btn_pressed(button):
 	selected_member = button.text
@@ -11,23 +18,27 @@ func _on_member_btn_pressed(button):
 		members[selected_member]["button"].disabled = true
 	#print(selected_member)
 
-func add_member(member:String="???",select:bool=false,add_button:bool=true):
+func add_member(member: String="???", select: bool=false, add_button: bool=true):
 	if !data.has_letters(member):
 		return
-	if !members.has(member):
-		members[member] = data.things["member"].duplicate()
-		if add_button:
-			members[member]["button"] = Button.new()
-			members[member]["button"].text = member
-			members[member]["button"].pressed.connect(self._on_member_btn_pressed.bind(members[member]["button"]))
-			member_box.add_child(members[member]["button"])
+	member = data.resolve_name_conflict(member,members)
+	members[member] = data.things["member"].duplicate()
+	members[member]["team"] = data.selected_team
+	if add_button:
+		member_box.add_item(member)
 		if select:
-			_on_member_btn_pressed(members[member]["button"])
+			for i in member_box.get_item_count():
+				if member_box.get_item_text(i) == member:
+					member_box.select(i)
+	# I LITERALLY JUST FIND AND REPLACED TEAM WITH MEMBER LMFAOOOO
+		#print(teams)
 
 func remove_member(member: String="???", remove_button: bool=true):
 	if members.has(member):
 		if remove_button:
-			members[member]["button"].queue_free()
+			for i in member_box.get_item_count():
+				if member_box.get_item_text(i) == member:
+					member_box.remove_item(i)
 		members.erase(member)
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -48,13 +59,10 @@ func _on_add_pressed():
 func _on_remove_pressed():
 	remove_member(selected_member)
 
-func _on_teams_team_button_pressed(team):
+func _on_team_button_pressed(_team):
+	print("clearing member bochs")
+	member_box.clear()
 	for member_name in members:
-		var member = members[member_name]
-		if member["team"] != team:
-			member["button"].hide()
-		else:
-			member["button"].show()
-
-
+		if members[member_name]["team"] == data.selected_team:
+			member_box.add_item(member_name)
 
