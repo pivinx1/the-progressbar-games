@@ -6,6 +6,7 @@ var teams = data.teams
 @export var team_box: ItemList
 @export var team_hated_box: CheckBox
 signal team_button_pressed(team: String)
+signal team_removed(team:String)
 
 func _on_item_list_item_selected(index):
 	data.selected_team = team_box.get_item_text(team_box.get_selected_items()[0])
@@ -19,19 +20,6 @@ func _on_item_list_item_selected(index):
 		remove_button.disabled = false
 		rename_button.disabled = false
 		team_hated_box.disabled = false
-
-#func _on_team_btn_pressed(button):
-	#data.selected_team = button.text
-	#team_button_pressed.emit(button.text)
-	#if data.selected_team == "No Team":
-		#remove_button.disabled = true
-		#rename_button.disabled = true
-		#team_hated_box.disabled = true
-	#else:
-		#remove_button.disabled = false
-		#rename_button.disabled = false
-		#team_hated_box.disabled = false
-	#print(data.selected_team)
 
 func add_team(team: String="???", select: bool=false, add_button: bool=true):
 	if !data.has_letters(team):
@@ -64,6 +52,9 @@ func remove_team(team: String="???", remove_button: bool=true):
 				if team_box.get_item_text(i) == team:
 					team_box.remove_item(i)
 		teams.erase(team)
+		for member_name in data.members:
+			if data.members[member_name]["team"] == team:
+				data.members[member_name]["team"] = "No Team"
 		
 func _on_team_add_pressed():
 	add_team(team_text_box.text)

@@ -101,6 +101,9 @@ offset_top = 3.0
 offset_right = 213.0
 offset_bottom = 228.0
 
+[node name="Timer" type="Timer" parent="Teams"]
+autostart = true
+
 [node name="Person" type="Panel" parent="." node_paths=PackedStringArray("member_box", "team_panel")]
 layout_mode = 1
 anchors_preset = 9
@@ -589,6 +592,7 @@ text = "JUST START THE GAME ALREADY!!!!!!"
 [connection signal="pressed" from="Teams/Rename" to="Teams" method="_on_team_rename_pressed"]
 [connection signal="pressed" from="Teams/Hated" to="Teams" method="_on_team_hated_pressed"]
 [connection signal="item_selected" from="Teams/ItemList" to="Teams" method="_on_item_list_item_selected"]
+[connection signal="timeout" from="Teams/Timer" to="Person" method="_on_timer_timeout"]
 [connection signal="pressed" from="Person/Add" to="Person" method="_on_add_pressed"]
 [connection signal="pressed" from="Person/Remove" to="Person" method="_on_remove_pressed"]
 [connection signal="pressed" from="Panel/Music" to="AudioStreamPlayer" method="_on_music_pressed"]

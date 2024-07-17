@@ -65,3 +65,7 @@ func _on_team_button_pressed(_team):
 		if members[member_name]["team"] == data.selected_team:
 			member_box.add_item(member_name)
 
+
+
+#func _on_timer_timeout():
+	#print(members)

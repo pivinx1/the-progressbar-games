@@ -47,7 +47,7 @@ var names = [
 		"Joe Mama", "Jane Mama", "FreezingGlaci3r", "Seafork", "tickedadjective0",
 		"Block Alt", "Kotek", "John Link (FAKE)", "L0v3r", "delete me = no family",
 		"Galvanized Square Steel", "Eco-Friendly Wood Veneer", "Soft Padding",
-		"Screws From Aunt",
+		"Screws From Aunt", "urstandingonmydick", "Crazy Segment"
 ]
 
 func resolve_name_conflict(conflicting:String,dict:Dictionary):
