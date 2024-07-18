@@ -92,7 +92,7 @@ func has_letters(your_string: String):
 # Config File
 
 var config = ConfigFile.new()
-var path = "./saves/config.cfg"
+var path = "./saves/config.ini"
 func _ready():
 	var err = config.load(path)
 	if err != OK:
@@ -111,7 +111,6 @@ var things = {
 	},
 	"member" = {
 		"name" = "markverb1 was here :3",
-		"button" = null,
 		"team" = "No Team",
 		"gender" = Gender.OTHER,
 		"species" = SpeciesType.HUMAN,
@@ -145,7 +144,6 @@ var things = {
 		},
 	},
 	"team" = {
-		"button" = null,
 		"hated" = false,
 	},
 	"traits" = {
