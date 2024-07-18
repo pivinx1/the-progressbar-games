@@ -30,7 +30,6 @@ func add_team(team: String="???", select: bool=false, add_button: bool=true):
 		var item = team_box.add_item(team)
 		if select:
 			team_box.select(item)
-		#print(teams)
 
 func rename_team(team: String="???", to: String="Name"):
 	if !data.has_letters(to):

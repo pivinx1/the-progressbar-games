@@ -59,7 +59,9 @@ var names = [
 		"Joe Mama", "Jane Mama", "FreezingGlaci3r", "Seafork", "tickedadjective0",
 		"Block Alt", "Kotek", "John Link (FAKE)", "L0v3r", "delete me = no family",
 		"Galvanized Square Steel", "Eco-Friendly Wood Veneer", "Soft Padding",
-		"Screws From Aunt", "urstandingonmydick", "Crazy Segment"
+		"Screws From Aunt", "urstandingonmydick", "Crazy Segment",
+		"Pomni from the Boring Digital School",  "Skibidi Biden", "Joe Joe Joe"
+		
 ]
 
 func resolve_name_conflict(conflicting:String,dict:Dictionary):
@@ -89,6 +91,11 @@ func has_letters(your_string: String):
 		return false
 	return regex.search(str(your_string))
 
+func add_trait(perk: String,member: String):
+	if members.has(member):
+		if things["traits"].has(perk):
+			members[member]["traits"].append(perk)
+
 # Config File
 
 var config = ConfigFile.new()
@@ -116,7 +123,7 @@ var things = {
 		"species" = SpeciesType.HUMAN,
 		"hated" = false,
 		"avatar" = "",
-		"traits" = [],
+		"traits" = ["lucky"],
 		"items" = [],
 		"gear" = [],
 		"stats" = {

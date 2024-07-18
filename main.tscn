@@ -140,15 +140,17 @@ offset_top = 4.0
 offset_right = 255.0
 offset_bottom = 272.0
 
-[node name="Traits" type="Panel" parent="." node_paths=PackedStringArray("selected_trait_box", "unsel_trait_box")]
+[node name="Traits" type="Panel" parent="." node_paths=PackedStringArray("sel_trait_box", "unsel_trait_box", "add_button", "remove_button")]
 layout_mode = 0
 offset_left = 301.0
 offset_top = 30.0
 offset_right = 579.0
 offset_bottom = 642.0
 script = ExtResource("3_7333d")
-selected_trait_box = NodePath("Selected")
+sel_trait_box = NodePath("Selected")
 unsel_trait_box = NodePath("Unselected")
+add_button = NodePath("AddTrait")
+remove_button = NodePath("RemoveTrait")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Traits"]
 layout_mode = 0
@@ -613,4 +615,5 @@ offset_bottom = 41.0
 [connection signal="timeout" from="Teams/Timer" to="Person" method="_on_timer_timeout"]
 [connection signal="pressed" from="Person/Add" to="Person" method="_on_add_pressed"]
 [connection signal="pressed" from="Person/Remove" to="Person" method="_on_remove_pressed"]
+[connection signal="pressed" from="Traits/AddTrait" to="Traits" method="_on_add_trait_pressed"]
 [connection signal="pressed" from="Panel/Music" to="AudioStreamPlayer" method="_on_music_pressed"]
