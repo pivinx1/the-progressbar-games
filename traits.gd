@@ -1,7 +1,16 @@
 extends Panel
-@export var selected_trait_box: VBoxContainer
-@export var unselected_trait_box: VBoxContainer
+@export var selected_trait_box: ItemList
+@export var unsel_trait_box: ItemList
+@export var add_button: Button
+@export var remove_button: Button
+var traits = data.things["traits"]
 
+func add_unsel_traits(select: int = 0):
+	add_unselected_trait_buttons_type(data.TraitType.GOOD)
+	add_unselected_trait_buttons_type(data.TraitType.SPECIES,true)
+	add_unselected_trait_buttons_type(data.TraitType.NEUTRAL)
+	add_unselected_trait_buttons_type(data.TraitType.NEGATIVE)
+	unsel_trait_box.select(select)
 
 func get_trait_font_color(type: data.TraitType):
 	match type:
@@ -16,23 +25,23 @@ func get_trait_font_color(type: data.TraitType):
 		_:
 			return Color.DIM_GRAY
 
-func add_trait_buttons_type(type: data.TraitType):
-	for perk in data.things["traits"]:
-		if data.things["traits"][perk]["type"] == type:
-			var current_perk = data.things["traits"][perk]
-			var button = Button.new()
-			button.name = current_perk["name"]
-			button.text = current_perk["name"]
-			button.icon = current_perk["icon"]
-			button.add_theme_color_override("font_color", get_trait_font_color(current_perk["type"]))
-			selected_trait_box.add_child(button)
+func add_unselected_trait_buttons_type(type: data.TraitType, disabled: bool = false):
+	for perk in traits:
+		if traits[perk]["type"] == type:
+			var current_perk = traits[perk]
+			var idx = unsel_trait_box.add_item(current_perk["name"],current_perk["icon"])
+			unsel_trait_box.set_item_metadata(idx,perk)
+			unsel_trait_box.set_item_custom_fg_color(idx,get_trait_font_color(current_perk["type"]))
+			unsel_trait_box.set_item_disabled(idx,disabled)
+			unsel_trait_box.set_item_tooltip(idx,current_perk["description"])
 
 func _ready():
-	add_trait_buttons_type(data.TraitType.GOOD)
-	add_trait_buttons_type(data.TraitType.SPECIES)
-	add_trait_buttons_type(data.TraitType.NEUTRAL)
-	add_trait_buttons_type(data.TraitType.NEGATIVE)
+	add_unsel_traits()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	pass
+	var tosel = 0
+	if unsel_trait_box.get_selected_items().size() > 0:
+		tosel = unsel_trait_box.get_selected_items()[0]
+	unsel_trait_box.clear()
+	add_unsel_traits(tosel)

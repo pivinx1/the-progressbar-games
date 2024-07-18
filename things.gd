@@ -34,9 +34,15 @@ enum ItemType {
 	MEDICAL,
 }
 enum GearType {
+	EYES,
+	SKIN,
+	LEGS,
 	HAT,
 	SHIRT,
 	PANTS,
+	HELMET,
+	VEST,
+	LEG_ARMOR
 }
 enum GuiType {
 	BOOL,

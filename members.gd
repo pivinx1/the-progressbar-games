@@ -18,11 +18,9 @@ func add_member(member: String="???", select: bool=false, add_button: bool=true)
 	members[member] = data.things["member"].duplicate()
 	members[member]["team"] = data.selected_team
 	if add_button:
-		member_box.add_item(member)
+		var item = member_box.add_item(member)
 		if select:
-			for i in member_box.get_item_count():
-				if member_box.get_item_text(i) == member:
-					member_box.select(i)
+			member_box.select(item)
 	# I LITERALLY JUST FIND AND REPLACED TEAM WITH MEMBER LMFAOOOO
 		#print(teams)
 

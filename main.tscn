@@ -140,63 +140,55 @@ offset_top = 4.0
 offset_right = 255.0
 offset_bottom = 272.0
 
-[node name="SelectedTraits" type="Panel" parent="." node_paths=PackedStringArray("selected_trait_box", "unselected_trait_box")]
-layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_left = 305.0
-offset_top = 41.0
-offset_right = 572.0
-offset_bottom = -329.0
-grow_vertical = 2
-script = ExtResource("3_7333d")
-selected_trait_box = NodePath("VBoxContainer")
-unselected_trait_box = NodePath("../UnselectedTraits/VBoxContainer")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="SelectedTraits"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_lock_ = true
-
-[node name="UnselectedTraits" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_left = 305.0
-offset_top = 356.0
-offset_right = 572.0
-offset_bottom = -21.0
-grow_vertical = 2
-scale = Vector2(1, 1.04046)
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UnselectedTraits"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_lock_ = true
-
-[node name="AddTrait" type="Button" parent="."]
+[node name="Traits" type="Panel" parent="." node_paths=PackedStringArray("selected_trait_box", "unsel_trait_box")]
 layout_mode = 0
-offset_left = 311.0
-offset_top = 326.0
-offset_right = 358.0
-offset_bottom = 351.0
+offset_left = 301.0
+offset_top = 30.0
+offset_right = 579.0
+offset_bottom = 642.0
+script = ExtResource("3_7333d")
+selected_trait_box = NodePath("Selected")
+unsel_trait_box = NodePath("Unselected")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Traits"]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 299.0
+offset_right = 275.0
+offset_bottom = 318.0
+bbcode_enabled = true
+text = "Pts: [color=green]1000[/color]"
+fit_content = true
+
+[node name="AddTrait" type="Button" parent="Traits"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 296.0
+offset_right = 57.0
+offset_bottom = 321.0
 text = "Add ^"
 
-[node name="RemoveTrait" type="Button" parent="."]
+[node name="RemoveTrait" type="Button" parent="Traits"]
 layout_mode = 0
-offset_left = 370.0
-offset_top = 326.0
-offset_right = 447.0
-offset_bottom = 351.0
+offset_left = 69.0
+offset_top = 296.0
+offset_right = 146.0
+offset_bottom = 321.0
 text = "Remove  v"
+
+[node name="Selected" type="ItemList" parent="Traits"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 272.0
+offset_bottom = 290.0
+
+[node name="Unselected" type="ItemList" parent="Traits"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 324.0
+offset_right = 272.0
+offset_bottom = 607.0
 
 [node name="InfoPanel" type="Panel" parent="."]
 layout_mode = 1
@@ -391,10 +383,10 @@ text = "[center][b]PERK[/b][/center]"
 
 [node name="ItemsText5" type="RichTextLabel" parent="ItemPanel"]
 layout_mode = 0
-offset_left = 38.0
-offset_top = 88.0
-offset_right = 89.0
-offset_bottom = 114.0
+offset_left = 13.0
+offset_top = 87.0
+offset_right = 64.0
+offset_bottom = 113.0
 bbcode_enabled = true
 text = "BODY"
 
@@ -558,15 +550,6 @@ offset_right = 216.0
 offset_bottom = 352.0
 bbcode_enabled = true
 text = "[center][b]PERSON[/b][/center]"
-
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_left = 471.0
-offset_top = 329.0
-offset_right = 572.0
-offset_bottom = 348.0
-bbcode_enabled = true
-text = "Pts: [color=green]1000[/color]"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." node_paths=PackedStringArray("tickbox")]
 stream = ExtResource("33_ha7ra")

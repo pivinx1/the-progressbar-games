@@ -27,11 +27,9 @@ func add_team(team: String="???", select: bool=false, add_button: bool=true):
 	team = data.resolve_name_conflict(team,teams)
 	teams[team] = data.things["team"].duplicate()
 	if add_button:
-		team_box.add_item(team)
+		var item = team_box.add_item(team)
 		if select:
-			for i in team_box.get_item_count():
-				if team_box.get_item_text(i) == team:
-					team_box.select(i)
+			team_box.select(item)
 		#print(teams)
 
 func rename_team(team: String="???", to: String="Name"):
