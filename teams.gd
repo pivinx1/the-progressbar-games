@@ -45,9 +45,9 @@ func rename_team(team: String="???", to: String="Name"):
 			if team_box.get_item_text(i) == team:
 				team_box.set_item_text(i,to)
 
-func remove_team(team: String="???", remove_button: bool=true):
+func remove_team(team: String="???", del_button: bool=true):
 	if teams.has(team):
-		if remove_button:
+		if del_button:
 			for i in team_box.get_item_count():
 				if team_box.get_item_text(i) == team:
 					team_box.remove_item(i)
