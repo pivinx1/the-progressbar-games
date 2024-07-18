@@ -11,13 +11,6 @@ extends Node
 var members = data.members
 var selected_member = data.selected_member
 
-func _on_member_btn_pressed(button):
-	selected_member = button.text
-	for btn in member_box.get_children():
-		btn.disabled = false
-		members[selected_member]["button"].disabled = true
-	#print(selected_member)
-
 func add_member(member: String="???", select: bool=false, add_button: bool=true):
 	if !data.has_letters(member):
 		return
@@ -40,24 +33,33 @@ func remove_member(member: String="???", remove_button: bool=true):
 				if member_box.get_item_text(i) == member:
 					member_box.remove_item(i)
 		members.erase(member)
+		
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	pass
+	if member_box.get_selected_items().size() > 0:
+		selected_member = member_box.get_item_text(member_box.get_selected_items()[0])
 
 
 func _on_add_pressed():
 	var rnd_name = data.get_random_name()
 	if members.has(rnd_name):
-		rnd_name = data.resolve_name_conflict(rnd_name,members)
+		for i in range(1,5):
+			rnd_name = data.get_random_name()
+			if !members.has(rnd_name):
+				break
+		if members.has(rnd_name):
+			rnd_name = data.resolve_name_conflict(rnd_name,members)
 	add_member(rnd_name,true,true)
 
 func _on_remove_pressed():
 	remove_member(selected_member)
+	if member_box.get_item_count() > 0:
+		member_box.select(member_box.get_item_count()-1)
 
 func _on_team_button_pressed(_team):
 	member_box.clear()
@@ -69,3 +71,6 @@ func _on_team_button_pressed(_team):
 
 #func _on_timer_timeout():
 	#print(members)
+
+
+
