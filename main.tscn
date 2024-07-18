@@ -182,6 +182,22 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_lock_ = true
 
+[node name="AddTrait" type="Button" parent="."]
+layout_mode = 0
+offset_left = 311.0
+offset_top = 326.0
+offset_right = 358.0
+offset_bottom = 351.0
+text = "Add ^"
+
+[node name="RemoveTrait" type="Button" parent="."]
+layout_mode = 0
+offset_left = 370.0
+offset_top = 326.0
+offset_right = 447.0
+offset_bottom = 351.0
+text = "Remove  v"
+
 [node name="InfoPanel" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 9
@@ -493,22 +509,6 @@ popup/item_0/text = "Four Leaf Clover"
 popup/item_0/icon = ExtResource("31_bknid")
 popup/item_0/id = 0
 
-[node name="AddTrait" type="Button" parent="."]
-layout_mode = 0
-offset_left = 306.0
-offset_top = 322.0
-offset_right = 368.0
-offset_bottom = 353.0
-text = "Add ↑"
-
-[node name="RemoveTrait" type="Button" parent="."]
-layout_mode = 0
-offset_left = 371.0
-offset_top = 322.0
-offset_right = 467.0
-offset_bottom = 353.0
-text = "Remove ↓"
-
 [node name="Decorations" type="Control" parent="."]
 anchors_preset = 0
 offset_right = 40.0
@@ -590,29 +590,36 @@ text = "Music"
 
 [node name="Import" type="Button" parent="Panel"]
 layout_mode = 0
-offset_left = 86.0
-offset_top = 6.0
-offset_right = 140.0
-offset_bottom = 31.0
+offset_left = 7.0
+offset_top = 51.0
+offset_right = 61.0
+offset_bottom = 76.0
 text = "Import"
 
 [node name="Export" type="Button" parent="Panel"]
 layout_mode = 0
-offset_left = 144.0
-offset_top = 6.0
-offset_right = 198.0
-offset_bottom = 31.0
+offset_left = 63.0
+offset_top = 51.0
+offset_right = 117.0
+offset_bottom = 76.0
 text = "Export"
 
 [node name="Export2" type="Button" parent="Panel"]
 layout_mode = 0
-offset_left = 220.0
-offset_top = 6.0
-offset_right = 547.0
-offset_bottom = 31.0
+offset_left = 227.0
+offset_top = 53.0
+offset_right = 554.0
+offset_bottom = 78.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_pibdy")
 theme_override_styles/hover = SubResource("StyleBoxFlat_kdeen")
 text = "JUST START THE GAME ALREADY!!!!!!"
+
+[node name="HSeparator" type="HSeparator" parent="Panel"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 37.0
+offset_right = 562.0
+offset_bottom = 41.0
 
 [connection signal="team_button_pressed" from="Teams" to="Person" method="_on_team_button_pressed"]
 [connection signal="pressed" from="Teams/Add" to="Teams" method="_on_team_add_pressed"]
