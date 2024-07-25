@@ -1,10 +1,13 @@
-[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://crbej7q7lhfgn"]
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://bpghjqy031b11"]
 
-[ext_resource type="Texture2D" uid="uid://bf2j2fvrj58yy" path="res://images/gui/button.png" id="1_yv0vc"]
+[ext_resource type="Texture2D" uid="uid://bigkmnjo55qj2" path="res://images/gui/btn_disabled.png" id="1_c7hvq"]
 
 [resource]
-texture = ExtResource("1_yv0vc")
+texture = ExtResource("1_c7hvq")
 texture_margin_left = 2.0
 texture_margin_top = 2.0
 texture_margin_right = 2.0
 texture_margin_bottom = 2.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 6, 6)
