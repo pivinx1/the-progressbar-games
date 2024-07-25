@@ -19,7 +19,7 @@ config/icon="res://logo.png"
 
 [autoload]
 
-data="*res://things.gd"
+data="*res://data.gd"
 
 [display]
 

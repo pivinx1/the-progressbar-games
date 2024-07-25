@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bgfhgxdrxs35k"]
+[gd_scene load_steps=4 format=3 uid="uid://bgfhgxdrxs35k"]
 
 [ext_resource type="Theme" uid="uid://bxxmvhyvvqb6e" path="res://other/theme.tres" id="1_f0x4i"]
+[ext_resource type="Script" path="res://data.gd" id="2_p82ps"]
+[ext_resource type="Script" path="res://teams.gd" id="3_4q0yf"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -10,25 +12,77 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_f0x4i")
+script = ExtResource("2_p82ps")
 metadata/_edit_lock_ = true
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Teams" type="Panel" parent="."]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 6.0
-offset_right = 216.0
+offset_right = 271.0
 offset_bottom = 235.0
+script = ExtResource("3_4q0yf")
 
-[node name="LineEdit" type="LineEdit" parent="Panel"]
+[node name="Text" type="LineEdit" parent="Teams"]
 layout_mode = 0
 offset_left = 2.0
 offset_top = 200.0
-offset_right = 210.0
+offset_right = 264.0
 offset_bottom = 227.0
 
-[node name="Panel2" type="Panel" parent="."]
+[node name="AddTeam" type="Button" parent="Teams"]
+layout_mode = 0
+offset_left = 202.0
+offset_top = 10.0
+offset_right = 226.0
+offset_bottom = 34.0
+text = "+"
+
+[node name="RemoveTeam" type="Button" parent="Teams"]
+layout_mode = 0
+offset_left = 237.0
+offset_top = 10.0
+offset_right = 262.0
+offset_bottom = 34.0
+text = "-"
+
+[node name="RenameTeam" type="Button" parent="Teams"]
+layout_mode = 0
+offset_left = 202.0
+offset_top = 35.0
+offset_right = 262.0
+offset_bottom = 59.0
+text = "Rename"
+
+[node name="HatedTick" type="CheckBox" parent="Teams"]
+layout_mode = 0
+offset_left = 204.0
+offset_top = 177.0
+offset_right = 260.0
+offset_bottom = 194.0
+text = "Hated"
+
+[node name="ItemList" type="ItemList" parent="Teams"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 199.0
+offset_bottom = 195.0
+
+[node name="Members" type="Panel" parent="."]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 239.0
-offset_right = 216.0
+offset_right = 270.0
 offset_bottom = 643.0
+
+[node name="ItemList" type="ItemList" parent="Members"]
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 199.0
+offset_bottom = 399.0
+
+[connection signal="pressed" from="Teams/AddTeam" to="Teams" method="_on_add_team_pressed"]
+[connection signal="pressed" from="Teams/RemoveTeam" to="Teams" method="_on_remove_team_pressed"]
+[connection signal="pressed" from="Teams/RenameTeam" to="Teams" method="_on_rename_team_pressed"]
+[connection signal="toggled" from="Teams/HatedTick" to="Teams" method="_on_hated_tick_toggled"]
