@@ -82,6 +82,7 @@ offset_top = 3.0
 offset_right = 199.0
 offset_bottom = 399.0
 
+[connection signal="text_changed" from="Teams/Text" to="Teams" method="_on_text_text_changed"]
 [connection signal="pressed" from="Teams/AddTeam" to="Teams" method="_on_add_team_pressed"]
 [connection signal="pressed" from="Teams/RemoveTeam" to="Teams" method="_on_remove_team_pressed"]
 [connection signal="pressed" from="Teams/RenameTeam" to="Teams" method="_on_rename_team_pressed"]

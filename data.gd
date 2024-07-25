@@ -86,7 +86,7 @@ func has_letters(str:String):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print(remove_whitespace("skibidi gyatt ohio rizzler!!/.aaa1244"))
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

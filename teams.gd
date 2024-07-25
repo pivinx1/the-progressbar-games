@@ -1,6 +1,13 @@
 extends Panel
 
 var text: String = ""
+var selected: String = "No Team"
+
+func update_team_list():
+	pass
+
+func select(team: String):
+	selected = team
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -29,4 +36,4 @@ func _on_hated_tick_toggled(toggled_on):
 
 
 func _on_text_text_changed(new_text):
-	pass # Replace with function body.
+	text = new_text
