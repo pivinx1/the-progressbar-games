@@ -15,13 +15,14 @@ theme = ExtResource("1_f0x4i")
 script = ExtResource("2_p82ps")
 metadata/_edit_lock_ = true
 
-[node name="Teams" type="Panel" parent="." node_paths=PackedStringArray("item_list")]
+[node name="Teams" type="Panel" parent="." node_paths=PackedStringArray("text", "item_list")]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 6.0
 offset_right = 271.0
 offset_bottom = 235.0
 script = ExtResource("3_4q0yf")
+text = NodePath("Text")
 item_list = NodePath("ItemList")
 
 [node name="Text" type="LineEdit" parent="Teams"]
@@ -84,7 +85,6 @@ offset_top = 3.0
 offset_right = 199.0
 offset_bottom = 399.0
 
-[connection signal="text_changed" from="Teams/Text" to="Teams" method="_on_text_text_changed"]
 [connection signal="pressed" from="Teams/AddTeam" to="Teams" method="_on_add_team_pressed"]
 [connection signal="pressed" from="Teams/RemoveTeam" to="Teams" method="_on_remove_team_pressed"]
 [connection signal="pressed" from="Teams/RenameTeam" to="Teams" method="_on_rename_team_pressed"]

@@ -1,8 +1,8 @@
 extends Panel
 
-var text: String = ""
 var selected: String = "No Team"
 var update: bool = true
+@export var text: LineEdit
 @export var item_list: ItemList
 
 func add_team(team: String = "No Team", select_team: bool = true):
@@ -58,7 +58,7 @@ func select(team: String):
 			item_list.select(item,true)
 
 func _on_add_team_pressed():
-	add_team(text,true)
+	add_team(text.text,true)
 
 
 func _on_remove_team_pressed():
@@ -66,16 +66,12 @@ func _on_remove_team_pressed():
 
 
 func _on_rename_team_pressed():
-	rename_team(selected,text,true)
+	rename_team(selected,text.text,true)
 
 
 @warning_ignore("unused_parameter")
 func _on_hated_tick_toggled(toggled_on):
 	pass # Replace with function body.
-
-
-func _on_text_text_changed(new_text):
-	text = new_text
 
 func _on_item_list_item_selected(index):
 	selected = item_list.get_item_metadata(index)
