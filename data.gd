@@ -44,14 +44,6 @@ enum GearType {
 
 # Classes
 
-class Member:
-	var member_name = ""
-	var gender: Gender = Gender.OTHER
-	var species: Species = Species.PERSON
-
-class Team:
-	var hated: bool = false
-
 # Variables
 
 var information = {
@@ -61,26 +53,32 @@ var information = {
 	"gear" = {
 		
 	},
+	"templates" = {
+		"team" = {
+			"hated" = false
+		}
+	}
 }
 
 var teams = {
 	
 }
+
 var members = {
 	
 }
 
 # Funcs
 
-func remove_whitespace(str: String):
+func remove_whitespace(string: String):
 	var cull = RegEx.new()
 	cull.compile("(\\W)+")
-	return cull.sub(str,"",true)
+	return cull.sub(string,"",true)
 
-func has_letters(str:String):
+func has_letters(string:String):
 	var hletters = RegEx.new()
 	hletters.compile("(\\w)+")
-	if hletters.search(str(str)):
+	if hletters.search(str(string)):
 		return true
 	return false
 

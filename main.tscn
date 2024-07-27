@@ -15,13 +15,14 @@ theme = ExtResource("1_f0x4i")
 script = ExtResource("2_p82ps")
 metadata/_edit_lock_ = true
 
-[node name="Teams" type="Panel" parent="."]
+[node name="Teams" type="Panel" parent="." node_paths=PackedStringArray("item_list")]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 6.0
 offset_right = 271.0
 offset_bottom = 235.0
 script = ExtResource("3_4q0yf")
+item_list = NodePath("ItemList")
 
 [node name="Text" type="LineEdit" parent="Teams"]
 layout_mode = 0
@@ -77,6 +78,7 @@ offset_right = 270.0
 offset_bottom = 643.0
 
 [node name="ItemList" type="ItemList" parent="Members"]
+layout_mode = 0
 offset_left = 3.0
 offset_top = 3.0
 offset_right = 199.0
@@ -87,3 +89,4 @@ offset_bottom = 399.0
 [connection signal="pressed" from="Teams/RemoveTeam" to="Teams" method="_on_remove_team_pressed"]
 [connection signal="pressed" from="Teams/RenameTeam" to="Teams" method="_on_rename_team_pressed"]
 [connection signal="toggled" from="Teams/HatedTick" to="Teams" method="_on_hated_tick_toggled"]
+[connection signal="item_selected" from="Teams/ItemList" to="Teams" method="_on_item_list_item_selected"]
