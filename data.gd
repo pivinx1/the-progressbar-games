@@ -1,5 +1,4 @@
 extends Control
-
 # Enums
 
 enum TraitType {
@@ -63,6 +62,7 @@ var information = {
 var teams = {
 	
 }
+var selected_team: String = "No Team"
 
 var members = {
 	

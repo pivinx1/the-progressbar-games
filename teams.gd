@@ -1,6 +1,5 @@
 extends Panel
 
-var selected: String = "No Team"
 var update: bool = true
 @export var text: LineEdit
 @export var item_list: ItemList
@@ -9,28 +8,28 @@ func add_team(team: String = "No Team", select_team: bool = true):
 	if !data.has_letters(team):
 		team = "No Team"
 	if data.has_letters(team) and !data.teams.has(team):
-		update = false
 		data.teams[team] = data.information["templates"]["team"].duplicate(true)
+		update_team_list()
 		if select_team:
-			select(name)
-	update = true
+			select(team)
 
 func remove_team(team: String):
 	if data.teams.has(team):
-		update = false
 		item_list.deselect_all()
 		data.teams.erase(team)
-	update = true
+	update_team_list()
 
 func rename_team(team: String, to: String, select_team: bool = true):
+	var dupe: Dictionary
 	if data.teams.has(team) and !data.teams.has(to):
-		update = false
-		data.teams[to] = data.teams[team].duplicate(true)
+		dupe = data.teams[team].duplicate(true)
 		remove_team(team)
-	update = true
+		data.teams[to] = dupe.duplicate(true)
+		update_team_list()
 	if select_team:
 		select(to)
-		
+	
+
 func update_team_list():
 	if update:
 		# Add new teams
@@ -47,26 +46,29 @@ func update_team_list():
 				
 		# Remove nonexistent teams
 		if item_list.item_count > 0:
+			print(item_list.item_count)
 			for item in item_list.item_count:
 				if !data.teams.has(item_list.get_item_metadata(item)):
 					item_list.remove_item(item)
 
 func select(team: String):
-	selected = team
+	data.selected_team = team
 	for item in item_list.item_count:
-		if item_list.get_item_metadata(item) == selected:
+		#print(item_list.get_item_metadata(item))
+		if item_list.get_item_metadata(item) == data.selected_team:
 			item_list.select(item,true)
+			#print(item)
 
 func _on_add_team_pressed():
 	add_team(text.text,true)
 
 
 func _on_remove_team_pressed():
-	remove_team(selected)
+	remove_team(data.selected_team)
 
 
 func _on_rename_team_pressed():
-	rename_team(selected,text.text,true)
+	rename_team(data.selected_team,text.text,true)
 
 
 @warning_ignore("unused_parameter")
@@ -74,16 +76,19 @@ func _on_hated_tick_toggled(toggled_on):
 	pass # Replace with function body.
 
 func _on_item_list_item_selected(index):
-	selected = item_list.get_item_metadata(index)
+	select(item_list.get_item_metadata(index))
+	#data.selected_team = item_list.get_item_metadata(index)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	add_team("No Team",true)
 	update_team_list()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	update_team_list()
+	#update_team_list()
+	pass
 
 
 
