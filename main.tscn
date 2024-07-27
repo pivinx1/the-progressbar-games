@@ -15,13 +15,14 @@ theme = ExtResource("1_f0x4i")
 script = ExtResource("2_p82ps")
 metadata/_edit_lock_ = true
 
-[node name="Teams" type="Panel" parent="." node_paths=PackedStringArray("item_list")]
+[node name="Teams" type="Panel" parent="." node_paths=PackedStringArray("text", "item_list")]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 6.0
 offset_right = 271.0
 offset_bottom = 235.0
 script = ExtResource("3_4q0yf")
+text = NodePath("Text")
 item_list = NodePath("ItemList")
 
 [node name="Text" type="LineEdit" parent="Teams"]
