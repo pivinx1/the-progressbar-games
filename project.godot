@@ -14,7 +14,7 @@ config/name="thebargames"
 run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 boot_splash/bg_color=Color(0.165656, 0.165656, 0.165656, 1)
-boot_splash/image="res://images/worstlogoever.png"
+boot_splash/image="res://images/misc/worstlogoever.png"
 config/icon="res://logo.png"
 
 [autoload]
