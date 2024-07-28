@@ -1,8 +1,8 @@
 extends Panel
 
-var update: bool = true
 @export var text: LineEdit
 @export var item_list: ItemList
+@export var hated_tick: CheckBox
 
 func add_team(team: String = "No Team", select_team: bool = true):
 	if !data.has_letters(team):
@@ -28,36 +28,36 @@ func rename_team(team: String, to: String, select_team: bool = true):
 		update_team_list()
 	if select_team:
 		select(to)
-	
+	# markverb1 @ 11:02 PM says: this workaround creates some seemingly redundant
+	# code, however it fixes a bug that i was having
+	# this is my note on anybody contributing to not remove this
 
 func update_team_list():
-	if update:
-		# Add new teams
-		for team in data.teams.keys():
-			var has_team: bool = false
-			if item_list.item_count > 0:
-				for item in item_list.item_count:
-					if item_list.get_item_metadata(item) == team:
-						has_team = true
-			#print(has_team)
-			if !has_team:
-				var idx: int = item_list.add_item(team)
-				item_list.set_item_metadata(idx,team)
-				
-		# Remove nonexistent teams
+	# Add new teams
+	for team in data.teams.keys():
+		var has_team: bool = false
 		if item_list.item_count > 0:
-			print(item_list.item_count)
 			for item in item_list.item_count:
-				if !data.teams.has(item_list.get_item_metadata(item)):
-					item_list.remove_item(item)
+				if item_list.get_item_metadata(item) == team:
+					has_team = true
+		if !has_team:
+			var idx: int = item_list.add_item(team)
+			item_list.set_item_metadata(idx,team)
+			
+	# Remove nonexistent teams
+	if item_list.item_count > 0:
+		#print(item_list.item_count)
+		for item in item_list.item_count:
+			if !data.teams.has(item_list.get_item_metadata(item)):
+				item_list.remove_item(item)
 
 func select(team: String):
 	data.selected_team = team
 	for item in item_list.item_count:
-		#print(item_list.get_item_metadata(item))
 		if item_list.get_item_metadata(item) == data.selected_team:
 			item_list.select(item,true)
-			#print(item)
+	hated_tick.button_pressed = data.teams[data.selected_team]["hated"]
+	
 
 func _on_add_team_pressed():
 	add_team(text.text,true)
@@ -66,29 +66,22 @@ func _on_add_team_pressed():
 func _on_remove_team_pressed():
 	remove_team(data.selected_team)
 
-
 func _on_rename_team_pressed():
 	rename_team(data.selected_team,text.text,true)
 
-
-@warning_ignore("unused_parameter")
 func _on_hated_tick_toggled(toggled_on):
-	pass # Replace with function body.
+	if data.teams.has(data.selected_team):
+		data.teams[data.selected_team]["hated"] = toggled_on
 
 func _on_item_list_item_selected(index):
 	select(item_list.get_item_metadata(index))
-	#data.selected_team = item_list.get_item_metadata(index)
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	add_team("No Team",true)
 	update_team_list()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	#update_team_list()
-	pass
+	update_team_list()
 
 
 
