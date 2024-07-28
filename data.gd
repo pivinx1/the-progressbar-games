@@ -54,7 +54,8 @@ var information = {
 	},
 	"templates" = {
 		"team" = {
-			"hated" = false
+			"hated" = false,
+			"uneditable" = false,
 		}
 	}
 }

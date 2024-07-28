@@ -15,7 +15,7 @@ theme = ExtResource("1_f0x4i")
 script = ExtResource("2_p82ps")
 metadata/_edit_lock_ = true
 
-[node name="Teams" type="Panel" parent="." node_paths=PackedStringArray("text", "item_list", "hated_tick")]
+[node name="Teams" type="Panel" parent="." node_paths=PackedStringArray("text", "item_list", "hated_tick", "remove_team_button", "rename_team_button")]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 5.0
@@ -25,6 +25,8 @@ script = ExtResource("3_4q0yf")
 text = NodePath("Text")
 item_list = NodePath("ItemList")
 hated_tick = NodePath("HatedTick")
+remove_team_button = NodePath("RemoveTeam")
+rename_team_button = NodePath("RenameTeam")
 
 [node name="Text" type="LineEdit" parent="Teams"]
 layout_mode = 0
