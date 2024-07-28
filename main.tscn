@@ -18,7 +18,7 @@ metadata/_edit_lock_ = true
 [node name="Teams" type="Panel" parent="." node_paths=PackedStringArray("text", "item_list", "hated_tick")]
 layout_mode = 0
 offset_left = 4.0
-offset_top = 6.0
+offset_top = 5.0
 offset_right = 271.0
 offset_bottom = 235.0
 script = ExtResource("3_4q0yf")
@@ -35,26 +35,26 @@ offset_bottom = 227.0
 
 [node name="AddTeam" type="Button" parent="Teams"]
 layout_mode = 0
-offset_left = 202.0
-offset_top = 10.0
-offset_right = 226.0
-offset_bottom = 34.0
+offset_left = 7.0
+offset_top = 174.0
+offset_right = 31.0
+offset_bottom = 198.0
 text = "+"
 
 [node name="RemoveTeam" type="Button" parent="Teams"]
 layout_mode = 0
-offset_left = 237.0
-offset_top = 10.0
-offset_right = 262.0
-offset_bottom = 34.0
+offset_left = 36.0
+offset_top = 174.0
+offset_right = 61.0
+offset_bottom = 198.0
 text = "-"
 
 [node name="RenameTeam" type="Button" parent="Teams"]
 layout_mode = 0
-offset_left = 202.0
-offset_top = 35.0
-offset_right = 262.0
-offset_bottom = 59.0
+offset_left = 135.0
+offset_top = 174.0
+offset_right = 195.0
+offset_bottom = 198.0
 text = "Rename"
 
 [node name="HatedTick" type="CheckBox" parent="Teams"]
@@ -69,8 +69,16 @@ text = "Hated"
 layout_mode = 0
 offset_left = 3.0
 offset_top = 3.0
-offset_right = 199.0
+offset_right = 262.0
+offset_bottom = 171.0
+
+[node name="Label" type="Label" parent="Teams"]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 178.0
+offset_right = 118.0
 offset_bottom = 195.0
+text = "Teams"
 
 [node name="Members" type="Panel" parent="."]
 layout_mode = 0
@@ -83,11 +91,35 @@ offset_bottom = 643.0
 layout_mode = 0
 offset_left = 3.0
 offset_top = 3.0
-offset_right = 199.0
+offset_right = 262.0
+offset_bottom = 372.0
+
+[node name="AddMember" type="Button" parent="Members"]
+offset_left = 7.0
+offset_top = 376.0
+offset_right = 31.0
+offset_bottom = 400.0
+text = "+"
+
+[node name="RemoveMember" type="Button" parent="Members"]
+offset_left = 44.0
+offset_top = 376.0
+offset_right = 68.0
+offset_bottom = 400.0
+text = "-"
+
+[node name="Label" type="Label" parent="Members"]
+layout_mode = 0
+offset_left = 195.0
+offset_top = 382.0
+offset_right = 258.0
 offset_bottom = 399.0
+text = "Members"
 
 [connection signal="pressed" from="Teams/AddTeam" to="Teams" method="_on_add_team_pressed"]
 [connection signal="pressed" from="Teams/RemoveTeam" to="Teams" method="_on_remove_team_pressed"]
 [connection signal="pressed" from="Teams/RenameTeam" to="Teams" method="_on_rename_team_pressed"]
 [connection signal="toggled" from="Teams/HatedTick" to="Teams" method="_on_hated_tick_toggled"]
 [connection signal="item_selected" from="Teams/ItemList" to="Teams" method="_on_item_list_item_selected"]
+[connection signal="pressed" from="Members/AddMember" to="Teams" method="_on_add_team_pressed"]
+[connection signal="pressed" from="Members/RemoveMember" to="Teams" method="_on_add_team_pressed"]
