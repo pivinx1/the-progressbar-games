@@ -83,7 +83,7 @@ offset_right = 118.0
 offset_bottom = 195.0
 text = "Teams"
 
-[node name="Members" type="Panel" parent="." node_paths=PackedStringArray("item_list")]
+[node name="Members" type="Panel" parent="." node_paths=PackedStringArray("item_list", "line_edit", "rm_button")]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 239.0
@@ -91,37 +91,65 @@ offset_right = 270.0
 offset_bottom = 643.0
 script = ExtResource("4_0wmef")
 item_list = NodePath("ItemList")
+line_edit = NodePath("LineEdit")
+rm_button = NodePath("RemoveAllMembers")
 
 [node name="ItemList" type="ItemList" parent="Members"]
 layout_mode = 0
 offset_left = 3.0
 offset_top = 3.0
 offset_right = 262.0
-offset_bottom = 372.0
+offset_bottom = 342.0
 
 [node name="AddMember" type="Button" parent="Members"]
 layout_mode = 0
-offset_left = 7.0
+offset_left = 3.0
 offset_top = 376.0
-offset_right = 31.0
+offset_right = 27.0
 offset_bottom = 400.0
 text = "+"
 
 [node name="RemoveMember" type="Button" parent="Members"]
 layout_mode = 0
-offset_left = 44.0
+offset_left = 30.0
 offset_top = 376.0
-offset_right = 68.0
+offset_right = 54.0
 offset_bottom = 400.0
 text = "-"
 
 [node name="Label" type="Label" parent="Members"]
 layout_mode = 0
-offset_left = 195.0
+offset_left = 197.0
 offset_top = 382.0
-offset_right = 258.0
+offset_right = 260.0
 offset_bottom = 399.0
 text = "Members"
+
+[node name="LineEdit" type="LineEdit" parent="Members"]
+layout_mode = 0
+offset_left = 135.0
+offset_top = 379.0
+offset_right = 192.0
+offset_bottom = 400.0
+text = "1"
+placeholder_text = "1"
+
+[node name="DangerTick" type="CheckBox" parent="Members"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 350.0
+offset_right = 71.0
+offset_bottom = 366.0
+text = "Danger"
+
+[node name="RemoveAllMembers" type="Button" parent="Members"]
+layout_mode = 0
+offset_left = 91.0
+offset_top = 347.0
+offset_right = 262.0
+offset_bottom = 371.0
+disabled = true
+text = "Rm all members of team"
 
 [connection signal="pressed" from="Teams/AddTeam" to="Teams" method="_on_add_team_pressed"]
 [connection signal="pressed" from="Teams/RemoveTeam" to="Teams" method="_on_remove_team_pressed"]
@@ -130,3 +158,5 @@ text = "Members"
 [connection signal="item_selected" from="Teams/ItemList" to="Teams" method="_on_item_list_item_selected"]
 [connection signal="pressed" from="Members/AddMember" to="Members" method="_on_add_member_pressed"]
 [connection signal="pressed" from="Members/RemoveMember" to="Members" method="_on_remove_member_pressed"]
+[connection signal="text_changed" from="Members/LineEdit" to="Members" method="_on_line_edit_text_changed"]
+[connection signal="toggled" from="Members/DangerTick" to="Members" method="_on_danger_tick_toggled"]

@@ -88,9 +88,3 @@ func _ready():
 
 func _process(_delta):
 	update_team_list()
-
-
-
-
-
-

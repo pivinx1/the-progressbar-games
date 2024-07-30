@@ -1,6 +1,9 @@
 extends Panel
 
 @export var item_list: ItemList
+@export var line_edit: LineEdit
+@export var rm_button: Button
+var amount = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -36,13 +39,26 @@ func update_member_list():
 
 func _on_add_member_pressed():
 	# i guess this is somewhat readable? still don't like it
-	add_member(
-		data.resolve_dict_key_conflict(
-			data.pick_random_name(
-				data.member_names,
-				data.members),
-			data.members)
-		)
+	if amount > 0:
+		for i in range(1,amount):
+			add_member(
+				data.resolve_dict_key_conflict(
+					data.pick_random_name(
+						data.member_names,
+						data.members),
+					data.members)
+				)
 
 func _on_remove_member_pressed():
 	pass # Replace with function body.
+
+# NOTE TO CONTRIBUTORS: this is deliberately done with a signal.
+func _on_line_edit_text_changed(new_text):
+	var regex = RegEx.new()
+	regex.compile("(^0-9\\W)+")
+	amount = clamp(int(regex.sub(new_text,"",true)),0,100)
+	if int(line_edit.text) != amount:
+		line_edit.text = str(amount)
+
+func _on_danger_tick_toggled(toggled_on):
+	rm_button.disabled = !toggled_on
