@@ -49,7 +49,6 @@ func update_team_list():
 			
 	# Remove nonexistent teams
 	if item_list.item_count > 0:
-		#print(item_list.item_count)
 		for item in item_list.item_count:
 			if !data.teams.has(item_list.get_item_metadata(item)):
 				item_list.remove_item(item)

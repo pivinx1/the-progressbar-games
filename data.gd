@@ -84,6 +84,7 @@ var information = {
 		},
 		"member" = {
 			"name" = "",
+			"team" = "",
 			"gender" = Gender.OTHER,
 			"species" = Species.PERSON,
 			"traits" = [],
@@ -166,10 +167,8 @@ func resolve_dict_key_conflict(conflicting:String,dict:Dictionary):
 	#var conflicting_temp: String = conflicting
 	if dict.has(conflicting):
 		attempts = 1
-		#print(attempts)
 	while dict.has(conflicting + str(attempts)):
 		attempts += 1
-		#print(attempts)
 	match attempts:
 		0:
 			return conflicting
