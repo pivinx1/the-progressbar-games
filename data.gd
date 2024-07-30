@@ -70,7 +70,53 @@ var information = {
 		"team" = {
 			"hated" = false,
 			"uneditable" = false,
-		}
+		},
+		"member" = {
+			"name" = "",
+			"gender" = Gender.OTHER,
+			"species" = Species.PERSON,
+			"traits" = [],
+			"gear" = {
+				"head" = "",
+				"skin" = "",
+				"legs" = "",
+				"hat" = "",
+				"shirt" = "",
+				"pants" = "",
+				"helmet" = "",
+				"vest" = "",
+				"leg_protection" = ""
+			},
+			"variables" = {
+				"hp" = 20,
+				"armor" = 0,
+				"shell_shock" = 0,
+				
+			},
+			"stats" = {
+				# Weapon Handling
+				"firearms" = 0,
+				"melee" = 0,
+				# Mental
+				"intelligence" = 0,
+				"perception" = 0,
+				"agility" = 0,
+				# Emotions and relationships
+				"stability" = 0,
+				"annoyance" = 0,
+				"naivity" = 0,
+				"suicidal" = 0,
+				# Physical
+				"strength" = 0,
+				"vitality" = 0,
+				"stress_resistance" = 0,
+				# Practical
+				"medical" = 0,
+				"enginnering" = 0,
+				"leadership" = 0,
+				"programming" = 0, # to get out of this hellhole
+			},
+		},
 	}
 }
 
@@ -90,12 +136,35 @@ func remove_whitespace(string: String):
 	cull.compile("(\\W)+")
 	return cull.sub(string,"",true)
 
+func pick_random_name(from: Array, add_to_dict: Dictionary = {}):
+	var rand: String = from.pick_random()
+	for time in range(1,10):
+		if add_to_dict.has(rand):
+			rand = from.pick_random()
+	return rand
+
 func has_letters(string:String):
 	var hletters = RegEx.new()
 	hletters.compile("(\\w)+")
 	if hletters.search(str(string)):
 		return true
 	return false
+
+func resolve_dict_key_conflict(conflicting:String,dict:Dictionary):
+	var attempts: int = 0
+	#var conflicting_temp: String = conflicting
+	if dict.has(conflicting):
+		attempts = 1
+		print(attempts)
+	while dict.has(conflicting + str(attempts)):
+		attempts += 1
+		print(attempts)
+	match attempts:
+		0:
+			return conflicting
+		_:
+			return conflicting + str(attempts)
+	#return conflicting + str(attempts)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
