@@ -56,8 +56,19 @@ var member_names = [
 	"TayLay", "ivan dolvich", "that woman from uplink", "Bit", "Lithium",
 	"Fricks", "Stinkbug", "Moyta Mahala", "Mule", "mariverb1", "Setup", "h8ther's mom",
 	"L0ver", "the cops that came to undo your mom :p", "lmao dude", "uncute sam",
-	"sphere5590", "Xedomonaxx", "theta.ua", "Vehicle Slave", "Bath Unfunny"
+	"sphere5590", "Xedomonaxx", "theta.ua", "Vehicle Slave", "Bath Unfunny",
 ]
+
+ #_____       _                                    
+#/  __ \     | |                                   
+#| /  \/ __ _| |_ __ _ _ __ ___   __ _ _ __  _ __  
+#| |    / _` | __/ _` | '_ ` _ \ / _` | '_ \| '_ \ 
+#| \__/\ (_| | || (_| | | | | | | (_| | |_) | |_) |
+ #\____/\__,_|\__\__,_|_| |_| |_|\__,_| .__/| .__/ 
+									 #| |   | |    
+									 #|_|   |_|    
+# i know you're reading this.
+# why are you here if you are banned from contributing...
 
 var information = {
 	"items" = {

@@ -35,7 +35,14 @@ func update_member_list():
 				item_list.remove_item(item)
 
 func _on_add_member_pressed():
-	add_member(data.resolve_dict_key_conflict(data.pick_random_name(data.member_names,data.members),data.members))
+	# i guess this is somewhat readable? still don't like it
+	add_member(
+		data.resolve_dict_key_conflict(
+			data.pick_random_name(
+				data.member_names,
+				data.members),
+			data.members)
+		)
 
 func _on_remove_member_pressed():
 	pass # Replace with function body.
