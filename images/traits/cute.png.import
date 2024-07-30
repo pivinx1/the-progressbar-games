@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cja6d68c8ibps"
-path="res://.godot/imported/dogagpss.png-2790df4920a881817256ffab214a046a.ctex"
+uid="uid://doojvgxstensi"
+path="res://.godot/imported/cute.png-0d13976de47b9f2cc2a1213ab447ae51.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/misc/dogagpss.png"
-dest_files=["res://.godot/imported/dogagpss.png-2790df4920a881817256ffab214a046a.ctex"]
+source_file="res://images/traits/cute.png"
+dest_files=["res://.godot/imported/cute.png-0d13976de47b9f2cc2a1213ab447ae51.ctex"]
 
 [params]
 

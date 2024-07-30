@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkjmqf5tm7bir"
-path="res://.godot/imported/catperson.png-6f0eef2f0ca3361695357aa5522faa00.ctex"
+uid="uid://dgoc61l8cjudm"
+path="res://.godot/imported/ew_aero.png-f254ffca34f1232ac41c3fc6bbb6ee03.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/misc/catperson.png"
-dest_files=["res://.godot/imported/catperson.png-6f0eef2f0ca3361695357aa5522faa00.ctex"]
+source_file="res://images/things/ew_aero.png"
+dest_files=["res://.godot/imported/ew_aero.png-f254ffca34f1232ac41c3fc6bbb6ee03.ctex"]
 
 [params]
 

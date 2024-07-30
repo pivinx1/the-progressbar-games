@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c63jkjd5j54e"
-path="res://.godot/imported/physchopath.png-e6e36fd6760fc37456d0a2ba6fbf1ae8.ctex"
+uid="uid://ddehj88d5otlh"
+path="res://.godot/imported/lucky.png-85ebb4628afdf8a9eb55042662c571dd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/misc/physchopath.png"
-dest_files=["res://.godot/imported/physchopath.png-e6e36fd6760fc37456d0a2ba6fbf1ae8.ctex"]
+source_file="res://images/traits/lucky.png"
+dest_files=["res://.godot/imported/lucky.png-85ebb4628afdf8a9eb55042662c571dd.ctex"]
 
 [params]
 

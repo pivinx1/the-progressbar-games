@@ -45,6 +45,20 @@ enum GearType {
 
 # Variables
 
+var member_names = [
+	"Joe Mama", "Jane Mama", "DogaGPSS", "FreezingGlaci3r", "FuwwyAI",
+	"ProtoGuy", "Guy", "NotGuy", "CatGuy", "ComputerGuy", "pomni from the boring analog school",
+	"markverb1 was here :3", "Bitwise Labs", "Maika Ti V Legloto", "george the Idot",
+	"skywolf", "PianBad69", "m*ve on", "Uplink Gateway", "Hugh Jazz", "Mike Rafone",
+	"Ben Dover", "Mike Hawk", "markverb1 try to write a good sample name (impossible)",
+	"the skibidi rizzler", "ZalezGaming2", "LOE-", "John Lee-nk", "Michael from Michael Zombies",
+	"A certain spoiled brat that talks like a lawyer (spoiler: he's called leuko)",
+	"TayLay", "ivan dolvich", "that woman from uplink", "Bit", "Lithium",
+	"Fricks", "Stinkbug", "Moyta Mahala", "Mule", "mariverb1", "Setup", "h8ther's mom",
+	"L0ver", "the cops that came to undo your mom :p", "lmao dude", "uncute sam",
+	"sphere5590", "Xedomonaxx", "theta.ua", "Vehicle Slave", "Bath Unfunny"
+]
+
 var information = {
 	"items" = {
 		

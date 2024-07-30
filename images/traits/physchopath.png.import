@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://31saiowboqgh"
-path="res://.godot/imported/male.png-ac9f2f32dec817a0783fe51ce6121cee.ctex"
+uid="uid://c63jkjd5j54e"
+path="res://.godot/imported/physchopath.png-49a18398f40ceea583e60bd46b2b1703.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/misc/male.png"
-dest_files=["res://.godot/imported/male.png-ac9f2f32dec817a0783fe51ce6121cee.ctex"]
+source_file="res://images/traits/physchopath.png"
+dest_files=["res://.godot/imported/physchopath.png-49a18398f40ceea583e60bd46b2b1703.ctex"]
 
 [params]
 

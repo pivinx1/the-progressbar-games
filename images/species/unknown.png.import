@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xmxpsjdtfclu"
-path="res://.godot/imported/metro_fuck_yeah.png-6c6ed53e3f64e7380f89ba4a5a421f4c.ctex"
+uid="uid://b5y4eejc45hwb"
+path="res://.godot/imported/unknown.png-d3a99c4d277a0dbb6b91a0cd949d2502.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/misc/metro_fuck_yeah.png"
-dest_files=["res://.godot/imported/metro_fuck_yeah.png-6c6ed53e3f64e7380f89ba4a5a421f4c.ctex"]
+source_file="res://images/species/unknown.png"
+dest_files=["res://.godot/imported/unknown.png-d3a99c4d277a0dbb6b91a0cd949d2502.ctex"]
 
 [params]
 

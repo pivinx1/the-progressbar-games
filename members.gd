@@ -10,10 +10,8 @@ func _ready():
 func _process(delta):
 	pass
 
-
-func _on_remove_member_pressed():
+func _on_add_member_pressed():
 	pass # Replace with function body.
 
-
-func _on_add_member_pressed():
+func _on_remove_member_pressed():
 	pass # Replace with function body.

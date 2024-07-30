@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnnu82chyhdiy"
-path="res://.godot/imported/furry.png-d3bbbb29a9f8f15297fa238673d9ba2e.ctex"
+uid="uid://cja6d68c8ibps"
+path="res://.godot/imported/dogagpss.png-c509cbfc96b8c07d36edbd73ed2c5d9d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/misc/furry.png"
-dest_files=["res://.godot/imported/furry.png-d3bbbb29a9f8f15297fa238673d9ba2e.ctex"]
+source_file="res://images/avatars/dogagpss.png"
+dest_files=["res://.godot/imported/dogagpss.png-c509cbfc96b8c07d36edbd73ed2c5d9d.ctex"]
 
 [params]
 

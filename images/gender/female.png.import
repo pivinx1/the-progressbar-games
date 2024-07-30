@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgohcvosvnhwf"
-path="res://.godot/imported/proto.png-d5dae8255f972210c9c7d3fe98a3f269.ctex"
+uid="uid://bqbfuromqryhh"
+path="res://.godot/imported/female.png-eb546bc833023dad0296957729a7a9bd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/misc/proto.png"
-dest_files=["res://.godot/imported/proto.png-d5dae8255f972210c9c7d3fe98a3f269.ctex"]
+source_file="res://images/gender/female.png"
+dest_files=["res://.godot/imported/female.png-eb546bc833023dad0296957729a7a9bd.ctex"]
 
 [params]
 

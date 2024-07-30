@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddwlspvv430so"
-path="res://.godot/imported/worstlogoever.png-4f9bbfa418746f0a7cde548d9ef634f2.ctex"
+uid="uid://bkjmqf5tm7bir"
+path="res://.godot/imported/catperson.png-d54c2c15083ba8c2a36e1b12b4ce4c14.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/misc/worstlogoever.png"
-dest_files=["res://.godot/imported/worstlogoever.png-4f9bbfa418746f0a7cde548d9ef634f2.ctex"]
+source_file="res://images/species/catperson.png"
+dest_files=["res://.godot/imported/catperson.png-d54c2c15083ba8c2a36e1b12b4ce4c14.ctex"]
 
 [params]
 

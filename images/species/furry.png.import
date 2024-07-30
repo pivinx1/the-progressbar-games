@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgoc61l8cjudm"
-path="res://.godot/imported/ew_aero.png-4a53892a40b18ef5fe5756ad9347125a.ctex"
+uid="uid://dnnu82chyhdiy"
+path="res://.godot/imported/furry.png-5b622dcbbcebbcfafecff4489e00a434.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/misc/ew_aero.png"
-dest_files=["res://.godot/imported/ew_aero.png-4a53892a40b18ef5fe5756ad9347125a.ctex"]
+source_file="res://images/species/furry.png"
+dest_files=["res://.godot/imported/furry.png-5b622dcbbcebbcfafecff4489e00a434.ctex"]
 
 [params]
 

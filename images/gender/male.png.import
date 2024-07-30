@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddehj88d5otlh"
-path="res://.godot/imported/lucky.png-54e95dce066d945dea2965c25bfbecb0.ctex"
+uid="uid://31saiowboqgh"
+path="res://.godot/imported/male.png-a668c7da8e8accec36dd3f15a84163ff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/misc/lucky.png"
-dest_files=["res://.godot/imported/lucky.png-54e95dce066d945dea2965c25bfbecb0.ctex"]
+source_file="res://images/gender/male.png"
+dest_files=["res://.godot/imported/male.png-a668c7da8e8accec36dd3f15a84163ff.ctex"]
 
 [params]
 
