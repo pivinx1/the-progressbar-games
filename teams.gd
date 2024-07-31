@@ -86,4 +86,6 @@ func _ready():
 	update_team_list()
 
 func _process(_delta):
+	if item_list.get_selected_items().size() > 0:
+		select(item_list.get_item_metadata(item_list.get_selected_items()[0]))
 	update_team_list()
