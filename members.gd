@@ -22,6 +22,9 @@ func add_member(member: String, team: String):
 
 func remove_member(member: String):
 	updating = false
+	for item in item_list.item_count:
+		if item_list.item_count > item and item_list.get_item_metadata(item) == member:
+			item_list.select(item-1,true)
 	data.members.erase(member)
 	updating = true
 
