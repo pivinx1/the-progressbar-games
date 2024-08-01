@@ -20,10 +20,12 @@ enum Species {
 	CATPERSON,
 	FURRY,
 	PROTOGEN, # It's the motherfucker from fortnite (fortnite)
+	# that video is so awkward lol. they don't even know that it's a furry
 	UNKNOWN,
 	SHEEP,
 	ZOMBIE,
-	GHOST
+	GHOST,
+	ABOMINATION,
 }
 
 enum GearType {
@@ -144,12 +146,14 @@ var gui_data = {
 	"attributes" = {
 		"name" = {
 			"type" = GUIType.LINE,
+			"icon" = preload("res://images/misc/nametag.png"),
 			"min" = 1,
 			"max" = 100,
 			"needs_letters" = true,
 		},
 		"gender" = {
 			"type" = GUIType.ENUM,
+			"icon" = preload("res://images/misc/gender.png"),
 			"items" = {
 				"male" = {
 					"name" = "Male",
@@ -168,7 +172,10 @@ var gui_data = {
 				},
 			},
 		},
-		
+		"species" = {
+			"type" = GUIType.ENUM,
+			"icon" = preload("res://images/species/unknown.png")
+		}
 	},
 }
 

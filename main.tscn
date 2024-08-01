@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bgfhgxdrxs35k"]
+[gd_scene load_steps=6 format=3 uid="uid://bgfhgxdrxs35k"]
 
 [ext_resource type="Theme" uid="uid://bxxmvhyvvqb6e" path="res://other/theme.tres" id="1_f0x4i"]
 [ext_resource type="Script" path="res://data.gd" id="2_p82ps"]
 [ext_resource type="Script" path="res://teams.gd" id="3_4q0yf"]
 [ext_resource type="Script" path="res://members.gd" id="4_0wmef"]
+[ext_resource type="Script" path="res://attributes.gd" id="5_8e7rr"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -83,7 +84,7 @@ offset_right = 118.0
 offset_bottom = 195.0
 text = "Teams"
 
-[node name="Members" type="Panel" parent="." node_paths=PackedStringArray("item_list", "line_edit", "rm_button")]
+[node name="Members" type="Panel" parent="." node_paths=PackedStringArray("item_list", "rm_button")]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 239.0
@@ -91,7 +92,6 @@ offset_right = 270.0
 offset_bottom = 643.0
 script = ExtResource("4_0wmef")
 item_list = NodePath("ItemList")
-line_edit = NodePath("LineEdit")
 rm_button = NodePath("RemoveAllMembers")
 
 [node name="ItemList" type="ItemList" parent="Members"]
@@ -125,15 +125,6 @@ offset_right = 260.0
 offset_bottom = 399.0
 text = "Members"
 
-[node name="LineEdit" type="LineEdit" parent="Members"]
-layout_mode = 0
-offset_left = 135.0
-offset_top = 379.0
-offset_right = 192.0
-offset_bottom = 400.0
-text = "1"
-placeholder_text = "1"
-
 [node name="DangerTick" type="CheckBox" parent="Members"]
 layout_mode = 0
 offset_left = 3.0
@@ -151,6 +142,17 @@ offset_bottom = 371.0
 disabled = true
 text = "Rm all members of team"
 
+[node name="SpinBox" type="SpinBox" parent="Members"]
+layout_mode = 0
+offset_left = 113.0
+offset_top = 377.0
+offset_right = 191.0
+offset_bottom = 398.0
+min_value = 1.0
+value = 1.0
+rounded = true
+select_all_on_focus = true
+
 [node name="Tabs" type="Panel" parent="."]
 layout_mode = 0
 offset_left = 542.0
@@ -165,8 +167,10 @@ offset_top = 5.0
 offset_right = 598.0
 offset_bottom = 311.0
 
-[node name="Attributes" type="Control" parent="Tabs/TabContainer"]
+[node name="Attributes" type="Control" parent="Tabs/TabContainer" node_paths=PackedStringArray("attributes_list")]
 layout_mode = 2
+script = ExtResource("5_8e7rr")
+attributes_list = NodePath("ItemList")
 
 [node name="ItemList" type="ItemList" parent="Tabs/TabContainer/Attributes"]
 layout_mode = 0
@@ -183,6 +187,61 @@ offset_right = 270.0
 offset_bottom = 270.0
 text = "Type: Boolean"
 
+[node name="Control" type="Control" parent="Tabs/TabContainer/Attributes"]
+anchors_preset = 0
+offset_left = 176.0
+offset_top = 13.0
+offset_right = 582.0
+offset_bottom = 245.0
+metadata/_edit_lock_ = true
+
+[node name="LineEdit" type="LineEdit" parent="Tabs/TabContainer/Attributes/Control"]
+visible = false
+layout_mode = 0
+offset_right = 406.0
+offset_bottom = 21.0
+
+[node name="TextEdit" type="TextEdit" parent="Tabs/TabContainer/Attributes/Control"]
+visible = false
+layout_mode = 0
+offset_right = 407.0
+offset_bottom = 233.0
+
+[node name="CheckBox" type="CheckBox" parent="Tabs/TabContainer/Attributes/Control"]
+visible = false
+layout_mode = 0
+offset_left = 11.0
+offset_top = 9.0
+offset_right = 27.0
+offset_bottom = 25.0
+text = "this is text for the check button.
+goog joj on finding this.
+uhhh idk what to write here.
+hehehahahdhqwhufhgiuhuhu
+if you see this while playing something has gone horribly wrong"
+
+[node name="SpinBox" type="SpinBox" parent="Tabs/TabContainer/Attributes/Control"]
+visible = false
+layout_mode = 0
+offset_right = 403.0
+offset_bottom = 21.0
+
+[node name="OptionButton" type="OptionButton" parent="Tabs/TabContainer/Attributes/Control"]
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 12.0
+item_count = 5
+popup/item_0/text = "MAIKA TI DA EBA"
+popup/item_0/id = 0
+popup/item_1/text = "if youre reading this. you suck"
+popup/item_1/id = 1
+popup/item_2/text = "hi catamapp"
+popup/item_2/id = 2
+popup/item_3/text = "data.members[\"markverb1\"][\"species\"] = Species.PROTOGEN"
+popup/item_3/id = 3
+popup/item_4/text = "this is my way of hiding secrets :p"
+popup/item_4/id = 4
+
 [node name="Panel2" type="Panel" parent="."]
 layout_mode = 0
 offset_left = 542.0
@@ -198,6 +257,6 @@ offset_bottom = 642.0
 [connection signal="item_selected" from="Members/ItemList" to="Members" method="_on_item_list_item_selected"]
 [connection signal="pressed" from="Members/AddMember" to="Members" method="_on_add_member_pressed"]
 [connection signal="pressed" from="Members/RemoveMember" to="Members" method="_on_remove_member_pressed"]
-[connection signal="text_changed" from="Members/LineEdit" to="Members" method="_on_line_edit_text_changed"]
 [connection signal="toggled" from="Members/DangerTick" to="Members" method="_on_danger_tick_toggled"]
 [connection signal="pressed" from="Members/RemoveAllMembers" to="Members" method="_on_remove_all_members_pressed"]
+[connection signal="value_changed" from="Members/SpinBox" to="Members" method="_on_spin_box_value_changed"]

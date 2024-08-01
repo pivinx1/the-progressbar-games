@@ -1,7 +1,6 @@
 extends Panel
 
 @export var item_list: ItemList
-@export var line_edit: LineEdit
 @export var rm_button: Button
 
 var updating = true
@@ -23,8 +22,9 @@ func add_member(member: String, team: String):
 func remove_member(member: String):
 	updating = false
 	for item in item_list.item_count:
-		if item_list.item_count > item and item_list.get_item_metadata(item) == member:
+		if item_list.item_count > item-1 and item_list.get_item_metadata(item) == member and item > -1 and item:
 			item_list.select(item-1,true)
+			data.selected_member = item_list.get_item_metadata(item-1)
 	data.members.erase(member)
 	updating = true
 
@@ -71,14 +71,6 @@ func _on_add_member_pressed():
 func _on_remove_member_pressed():
 	remove_member(data.selected_member)
 
-# NOTE TO CONTRIBUTORS: this is deliberately done with a signal.
-func _on_line_edit_text_changed(new_text):
-	var regex = RegEx.new()
-	regex.compile("(^0-9\\W)+")
-	amount = clamp(int(regex.sub(new_text,"",true)),0,100)
-	if int(line_edit.text) != amount:
-		line_edit.text = str(amount)
-
 func _on_danger_tick_toggled(toggled_on):
 	rm_button.disabled = !toggled_on
 
@@ -89,3 +81,7 @@ func _on_remove_all_members_pressed():
 	for member in data.members.keys():
 		if data.members[member]["team"] == data.selected_team:
 			data.members.erase(member)
+
+# pivin you can open another pr to fix this :troll:
+func _on_spin_box_value_changed(value):
+	amount = int(value)
