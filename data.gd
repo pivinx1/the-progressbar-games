@@ -41,6 +41,14 @@ enum GearType {
 	LEG_PROTECTION,
 }
 
+enum GUIType {
+	LINE,
+	MULTILINE,
+	FLOAT,
+	INT,
+	ENUM,
+	BOOL,
+}
 # Classes
 
 # Variables
@@ -132,14 +140,50 @@ var information = {
 	}
 }
 
+var gui_data = {
+	"attributes" = {
+		"name" = {
+			"type" = GUIType.LINE,
+			"min" = 1,
+			"max" = 100,
+			"needs_letters" = true,
+		},
+		"gender" = {
+			"type" = GUIType.ENUM,
+			"items" = {
+				"male" = {
+					"name" = "Male",
+					"value" = Gender.MALE,
+					"icon" = preload("res://images/gender/male.png")
+				},
+				"female" = {
+					"name" = "Female",
+					"value" = Gender.FEMALE,
+					"icon" = preload("res://images/gender/female.png")	
+				},
+				"other" = {
+					"name" = "Other/IDK",
+					"value" = Gender.OTHER,
+					"icon" = preload("res://images/gender/idk.png")
+				},
+			},
+		},
+		
+	},
+}
+
 var teams = {
 	
 }
+
 var selected_team: String = "No Team"
 
 var members = {
 	
 }
+
+var selected_member: String = "your mom"
+# there's atleast one of them. - notoriety
 
 # Funcs
 

@@ -3,7 +3,7 @@ extends Panel
 @export var item_list: ItemList
 @export var line_edit: LineEdit
 @export var rm_button: Button
-var selected_member: String = ""
+
 var updating = true
 var amount = 1
 
@@ -69,7 +69,7 @@ func _on_add_member_pressed():
 				)
 
 func _on_remove_member_pressed():
-	remove_member(selected_member)
+	remove_member(data.selected_member)
 
 # NOTE TO CONTRIBUTORS: this is deliberately done with a signal.
 func _on_line_edit_text_changed(new_text):
@@ -83,4 +83,9 @@ func _on_danger_tick_toggled(toggled_on):
 	rm_button.disabled = !toggled_on
 
 func _on_item_list_item_selected(index):
-	selected_member = item_list.get_item_metadata(index)
+	data.selected_member = item_list.get_item_metadata(index)
+
+func _on_remove_all_members_pressed():
+	for member in data.members.keys():
+		if data.members[member]["team"] == data.selected_team:
+			data.members.erase(member)

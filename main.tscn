@@ -151,6 +151,45 @@ offset_bottom = 371.0
 disabled = true
 text = "Rm all members of team"
 
+[node name="Tabs" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 542.0
+offset_top = 10.0
+offset_right = 1146.0
+offset_bottom = 327.0
+
+[node name="TabContainer" type="TabContainer" parent="Tabs"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 5.0
+offset_right = 598.0
+offset_bottom = 311.0
+
+[node name="Attributes" type="Control" parent="Tabs/TabContainer"]
+layout_mode = 2
+
+[node name="ItemList" type="ItemList" parent="Tabs/TabContainer/Attributes"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 170.0
+offset_bottom = 271.0
+
+[node name="Label" type="Label" parent="Tabs/TabContainer/Attributes"]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 253.0
+offset_right = 270.0
+offset_bottom = 270.0
+text = "Type: Boolean"
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 542.0
+offset_top = 332.0
+offset_right = 1146.0
+offset_bottom = 642.0
+
 [connection signal="pressed" from="Teams/AddTeam" to="Teams" method="_on_add_team_pressed"]
 [connection signal="pressed" from="Teams/RemoveTeam" to="Teams" method="_on_remove_team_pressed"]
 [connection signal="pressed" from="Teams/RenameTeam" to="Teams" method="_on_rename_team_pressed"]
@@ -161,3 +200,4 @@ text = "Rm all members of team"
 [connection signal="pressed" from="Members/RemoveMember" to="Members" method="_on_remove_member_pressed"]
 [connection signal="text_changed" from="Members/LineEdit" to="Members" method="_on_line_edit_text_changed"]
 [connection signal="toggled" from="Members/DangerTick" to="Members" method="_on_danger_tick_toggled"]
+[connection signal="pressed" from="Members/RemoveAllMembers" to="Members" method="_on_remove_all_members_pressed"]

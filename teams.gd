@@ -31,9 +31,12 @@ func rename_team(team: String, to: String, select_team: bool = true):
 		update_team_list()
 	if select_team:
 		select(to)
+	# NOTE DO NOT REMOVE THIS CODE!!!
+
 	# markverb1 @ 11:02 PM says: this workaround creates some seemingly redundant
 	# code, however it fixes a bug that i was having
-	# this is my note on anybody contributing to not remove this
+	
+
 
 func update_team_list():
 	# Add new teams
