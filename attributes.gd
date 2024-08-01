@@ -6,6 +6,7 @@ func populate_attributes_list():
 	for key in data.gui_data["attributes"].keys():
 		var attribute = data.gui_data["attributes"][key]
 		var idx = attributes_list.add_item(key)
+		attributes_list.set_item_metadata(idx,key)
 		if attribute.has("icon"):
 			attributes_list.set_item_icon(idx,attribute["icon"])
 

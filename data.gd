@@ -174,7 +174,25 @@ var gui_data = {
 		},
 		"species" = {
 			"type" = GUIType.ENUM,
-			"icon" = preload("res://images/species/unknown.png")
+			"icon" = preload("res://images/species/unknown.png"),
+			"items" = {
+				"person" = {
+					"name" = "Person",
+					"value" = Species.PERSON,
+					"icon" = preload("res://images/species/person.png")
+				},
+				"synth" = {
+					"name" = "Synth",
+					"value" = Species.SYNTH,
+					"icon" = preload("res://images/species/synth.png")	
+				},
+				"catperson" = {
+					# sam = !catperson
+					"name" = "Catperson",
+					"value" = Species.CATPERSON,
+					"icon" = preload("res://images/species/catperson.png")
+				},
+			},
 		}
 	},
 }
