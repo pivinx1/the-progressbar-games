@@ -159,6 +159,8 @@ var selected_member: String = "ymss3000 player"
 # Format explanation:
 # type - check enum GUIType and how it is used in this dict
 # icon - it's the icon. what more can I say
+# placeholder - the placeholder for lineedits and text edits
+# text - checkboxes and buttons if we ever have that gui type
 # min - minimum value, for text this is characters, for numbers this is min number
 # max - ditto but for maximum value
 # needs_letters - runs the regex \w. checks for letters and numbers
@@ -177,6 +179,7 @@ var gui_data = {
 	"attributes" = {
 		"name" = {
 			"type" = GUIType.LINE,
+			"placeholder" = pick_random_name(member_names,{}),
 			"icon" = preload("res://images/misc/nametag.png"),
 			"min" = 1,
 			"max" = 100,

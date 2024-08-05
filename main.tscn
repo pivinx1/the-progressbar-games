@@ -167,11 +167,17 @@ offset_top = 5.0
 offset_right = 598.0
 offset_bottom = 311.0
 
-[node name="Attributes" type="Control" parent="Tabs/TabContainer" node_paths=PackedStringArray("item_list", "control")]
+[node name="Attributes" type="Control" parent="Tabs/TabContainer" node_paths=PackedStringArray("freaky_button", "item_list", "control", "checkbox", "lineedit", "textedit", "spinbox", "dropdown")]
 layout_mode = 2
 script = ExtResource("5_8e7rr")
+freaky_button = NodePath("Freaky")
 item_list = NodePath("ItemList")
 control = NodePath("Control")
+checkbox = NodePath("Control/CheckBox")
+lineedit = NodePath("Control/LineEdit")
+textedit = NodePath("Control/TextEdit")
+spinbox = NodePath("Control/SpinBox")
+dropdown = NodePath("Control/OptionButton")
 
 [node name="ItemList" type="ItemList" parent="Tabs/TabContainer/Attributes"]
 layout_mode = 0
