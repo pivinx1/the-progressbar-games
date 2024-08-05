@@ -22,9 +22,9 @@ func add_member(member: String, team: String):
 func remove_member(member: String):
 	updating = false
 	for item in item_list.item_count:
-		if item_list.item_count > item-1 and item_list.get_item_metadata(item) == member and item > -1 and item:
-			item_list.select(item-1,true)
-			data.selected_member = item_list.get_item_metadata(item-1)
+		if item_list.item_count > item - 1 and item_list.get_item_metadata(item) == member and item > -1 and item:
+			item_list.select(item - 1, true)
+			data.selected_member = item_list.get_item_metadata(item - 1)
 	data.members.erase(member)
 	updating = true
 
@@ -45,7 +45,7 @@ func update_member_list():
 			if !has_member:
 				# actually adds the member
 				var idx: int = item_list.add_item(member)
-				item_list.set_item_metadata(idx,member)
+				item_list.set_item_metadata(idx, member)
 				
 		# Remove nonexistent members
 		if item_list.item_count > 0:
@@ -58,7 +58,7 @@ func update_member_list():
 func _on_add_member_pressed():
 	# i guess this is somewhat readable? still don't like it
 	if amount > 0:
-		for i in range(0,amount):
+		for i in range(0, amount):
 			add_member(
 				data.resolve_dict_key_conflict(
 					data.pick_random_name(

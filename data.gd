@@ -163,7 +163,7 @@ var gui_data = {
 				"female" = {
 					"name" = "Female",
 					"value" = Gender.FEMALE,
-					"icon" = preload("res://images/gender/female.png")	
+					"icon" = preload("res://images/gender/female.png")
 				},
 				"other" = {
 					"name" = "Other/IDK",
@@ -184,7 +184,7 @@ var gui_data = {
 				"synth" = {
 					"name" = "Synth",
 					"value" = Species.SYNTH,
-					"icon" = preload("res://images/species/synth.png")	
+					"icon" = preload("res://images/species/synth.png")
 				},
 				"catperson" = {
 					# sam = !catperson
@@ -215,23 +215,23 @@ var selected_member: String = "your mom"
 func remove_whitespace(string: String):
 	var cull = RegEx.new()
 	cull.compile("(\\W)+")
-	return cull.sub(string,"",true)
+	return cull.sub(string, "", true)
 
 func pick_random_name(from: Array, add_to_dict: Dictionary = {}):
 	var rand: String = from.pick_random()
-	for time in range(1,10):
+	for time in range(1, 10):
 		if add_to_dict.has(rand):
 			rand = from.pick_random()
 	return rand
 
-func has_letters(string:String):
+func has_letters(string: String):
 	var hletters = RegEx.new()
 	hletters.compile("(\\w)+")
 	if hletters.search(str(string)):
 		return true
 	return false
 
-func resolve_dict_key_conflict(conflicting:String,dict:Dictionary):
+func resolve_dict_key_conflict(conflicting: String, dict: Dictionary):
 	var attempts: int = 0
 	#var conflicting_temp: String = conflicting
 	if dict.has(conflicting):
