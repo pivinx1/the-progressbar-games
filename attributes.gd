@@ -33,7 +33,10 @@ func _process(_delta):
 	pass
 
 func _on_freaky_pressed():
-	print(data.gui_data["attributes"]["name"]["dict"])
+	if not freaky:
+		print("freaky mode active 👅💦🧏‍♂️🤫")
+		freaky_button.hide()
+		freaky = true
 
 
 # OH MY GODOT SHIT UP
