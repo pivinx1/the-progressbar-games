@@ -142,6 +142,37 @@ var information = {
 	}
 }
 
+# do not move this down or you will have to face ze concequences
+
+var teams = {
+	
+}
+
+var selected_team: String = "No Team"
+
+var members = {
+	
+}
+
+var selected_member: String = "ymss3000 player"
+
+# Format explanation:
+# type - check enum GUIType and how it is used in this dict
+# icon - it's the icon. what more can I say
+# min - minimum value, for text this is characters, for numbers this is min number
+# max - ditto but for maximum value
+# needs_letters - runs the regex \w. checks for letters and numbers
+# sub1,sub2,sub3 - dict[sub1][sub2][sub3]. if you somehow get to more subdicts than that, you can go add sub4 to the parser
+
+# Enum format - this is for dropdowns.
+# items is a dict for items to be added to the dropdown
+# an item is:
+# name - the name. what more do i have to say
+# value - the value (metadata)
+# icon - icon
+
+## markverb1, 11:44 AM
+
 var gui_data = {
 	"attributes" = {
 		"name" = {
@@ -150,10 +181,13 @@ var gui_data = {
 			"min" = 1,
 			"max" = 100,
 			"needs_letters" = true,
+			#"dict" = members - fuck you im hardcoding
+			"sub1" = "name",
 		},
 		"gender" = {
 			"type" = GUIType.ENUM,
 			"icon" = preload("res://images/misc/gender.png"),
+			"sub1" = "gender",
 			"items" = {
 				"male" = {
 					"name" = "Male",
@@ -184,7 +218,8 @@ var gui_data = {
 				"synth" = {
 					"name" = "Synth",
 					"value" = Species.SYNTH,
-					"icon" = preload("res://images/species/synth.png")
+					"icon" = preload("res://images/species/synth.png"),
+					"value1" = "a",
 				},
 				"catperson" = {
 					# sam = !catperson
@@ -196,19 +231,6 @@ var gui_data = {
 		}
 	},
 }
-
-var teams = {
-	
-}
-
-var selected_team: String = "No Team"
-
-var members = {
-	
-}
-
-var selected_member: String = "your mom"
-# there's atleast one of them. - notoriety
 
 # Funcs
 

@@ -8,7 +8,7 @@ var amount = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -17,6 +17,7 @@ func _process(_delta):
 
 func add_member(member: String, team: String):
 	data.members[member] = data.information["templates"]["member"].duplicate()
+	data.members[member]["name"] = member
 	data.members[member]["team"] = team
 
 func remove_member(member: String):
@@ -44,7 +45,7 @@ func update_member_list():
 							has_member = true
 			if !has_member:
 				# actually adds the member
-				var idx: int = item_list.add_item(member)
+				var idx: int = item_list.add_item(data.members[member]["name"])
 				item_list.set_item_metadata(idx, member)
 				
 		# Remove nonexistent members

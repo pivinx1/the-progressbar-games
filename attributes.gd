@@ -20,6 +20,13 @@ func _ready():
 func _process(_delta):
 	pass
 
+func _on_freaky_pressed():
+	print(data.gui_data["attributes"]["name"]["dict"])
 
-func _on_button_pressed():
+
+func _on_line_edit_text_changed(new_text):
+	pass # Replace with function body.
+
+
+func _on_item_list_item_selected(index):
 	pass # Replace with function body.

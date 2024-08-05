@@ -237,6 +237,14 @@ item_count = 1
 popup/item_0/text = "data.members[\"markverb1\"][\"species\"] = Species.PROTOGEN"
 popup/item_0/id = 0
 
+[node name="Freaky" type="Button" parent="Tabs/TabContainer/Attributes"]
+layout_mode = 0
+offset_left = 466.0
+offset_top = 252.0
+offset_right = 586.0
+offset_bottom = 276.0
+text = "freaky button 👅"
+
 [node name="Panel2" type="Panel" parent="."]
 layout_mode = 0
 offset_left = 542.0
@@ -255,3 +263,4 @@ offset_bottom = 642.0
 [connection signal="toggled" from="Members/DangerTick" to="Members" method="_on_danger_tick_toggled"]
 [connection signal="pressed" from="Members/RemoveAllMembers" to="Members" method="_on_remove_all_members_pressed"]
 [connection signal="value_changed" from="Members/SpinBox" to="Members" method="_on_spin_box_value_changed"]
+[connection signal="pressed" from="Tabs/TabContainer/Attributes/Freaky" to="Tabs/TabContainer/Attributes" method="_on_freaky_pressed"]
