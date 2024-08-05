@@ -167,10 +167,11 @@ offset_top = 5.0
 offset_right = 598.0
 offset_bottom = 311.0
 
-[node name="Attributes" type="Control" parent="Tabs/TabContainer" node_paths=PackedStringArray("attributes_list")]
+[node name="Attributes" type="Control" parent="Tabs/TabContainer" node_paths=PackedStringArray("item_list", "control")]
 layout_mode = 2
 script = ExtResource("5_8e7rr")
-attributes_list = NodePath("ItemList")
+item_list = NodePath("ItemList")
+control = NodePath("Control")
 
 [node name="ItemList" type="ItemList" parent="Tabs/TabContainer/Attributes"]
 layout_mode = 0
@@ -196,19 +197,16 @@ offset_bottom = 245.0
 metadata/_edit_lock_ = true
 
 [node name="LineEdit" type="LineEdit" parent="Tabs/TabContainer/Attributes/Control"]
-visible = false
 layout_mode = 0
 offset_right = 406.0
 offset_bottom = 21.0
 
 [node name="TextEdit" type="TextEdit" parent="Tabs/TabContainer/Attributes/Control"]
-visible = false
 layout_mode = 0
 offset_right = 407.0
 offset_bottom = 233.0
 
 [node name="CheckBox" type="CheckBox" parent="Tabs/TabContainer/Attributes/Control"]
-visible = false
 layout_mode = 0
 offset_left = 11.0
 offset_top = 9.0
@@ -221,13 +219,11 @@ hehehahahdhqwhufhgiuhuhu
 if you see this while playing something has gone horribly wrong"
 
 [node name="SpinBox" type="SpinBox" parent="Tabs/TabContainer/Attributes/Control"]
-visible = false
 layout_mode = 0
 offset_right = 403.0
 offset_bottom = 21.0
 
 [node name="OptionButton" type="OptionButton" parent="Tabs/TabContainer/Attributes/Control"]
-visible = false
 layout_mode = 0
 offset_left = 23.0
 offset_top = -1.0
@@ -263,4 +259,6 @@ offset_bottom = 642.0
 [connection signal="toggled" from="Members/DangerTick" to="Members" method="_on_danger_tick_toggled"]
 [connection signal="pressed" from="Members/RemoveAllMembers" to="Members" method="_on_remove_all_members_pressed"]
 [connection signal="value_changed" from="Members/SpinBox" to="Members" method="_on_spin_box_value_changed"]
+[connection signal="item_selected" from="Tabs/TabContainer/Attributes/ItemList" to="Tabs/TabContainer/Attributes" method="_on_item_list_item_selected"]
+[connection signal="text_changed" from="Tabs/TabContainer/Attributes/Control/LineEdit" to="Tabs/TabContainer/Attributes" method="_on_line_edit_text_changed"]
 [connection signal="pressed" from="Tabs/TabContainer/Attributes/Freaky" to="Tabs/TabContainer/Attributes" method="_on_freaky_pressed"]

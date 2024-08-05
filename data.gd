@@ -266,6 +266,12 @@ func resolve_dict_key_conflict(conflicting: String, dict: Dictionary):
 		_:
 			return conflicting + str(attempts)
 	#return conflicting + str(attempts)
+func show_children_of(node):
+	for child in node.get_children(false):
+		child.show()
+func hide_children_of(node):
+	for child in node.get_children(false):
+		child.hide()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
