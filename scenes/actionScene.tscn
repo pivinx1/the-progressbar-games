@@ -9,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_5xyrd")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
@@ -16,11 +17,12 @@ offset_left = 406.0
 offset_top = 1.0
 offset_right = 1152.0
 offset_bottom = 460.0
-script = ExtResource("1_5xyrd")
 
 [node name="CombatLogField" type="RichTextLabel" parent="Panel"]
 layout_mode = 0
-offset_left = 9.0
+offset_left = 21.0
 offset_top = 9.0
 offset_right = 734.0
 offset_bottom = 453.0
+bbcode_enabled = true
+text = "this is here just so we know this richtextfield [color=green]exists[/color]"
