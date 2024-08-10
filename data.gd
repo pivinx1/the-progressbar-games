@@ -98,6 +98,7 @@ var information = {
 			"gender" = Gender.OTHER,
 			"species" = Species.PERSON,
 			"traits" = [],
+			"items" = [],
 			"gear" = {
 				"head" = "",
 				"skin" = "",
@@ -275,12 +276,3 @@ func show_children_of(node):
 func hide_children_of(node):
 	for child in node.get_children(false):
 		child.hide()
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
