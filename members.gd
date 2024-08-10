@@ -16,7 +16,7 @@ func _process(_delta):
 	update_member_list()
 
 func add_member(member: String, team: String):
-	data.members[member] = data.information["templates"]["member"].duplicate()
+	data.members[member] = data.information["templates"]["member"].duplicate(true)
 	data.members[member]["name"] = member
 	data.members[member]["team"] = team
 

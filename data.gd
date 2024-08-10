@@ -275,6 +275,10 @@ func show_children_of(node):
 func hide_children_of(node):
 	for child in node.get_children(false):
 		child.hide()
+func set_member_attribute(member: String,sub1,sub2,sub3):
+	if members.has(member):
+		pass
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

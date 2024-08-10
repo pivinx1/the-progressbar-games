@@ -14,7 +14,6 @@ var freaky: bool = false
 
 # I FUCKING HATE THIS AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 
-
 func populate_item_list():
 	for key in data.gui_data["attributes"].keys():
 		var attribute = data.gui_data["attributes"][key]
